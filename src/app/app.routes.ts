@@ -8,18 +8,15 @@ import { CertificatesComponent } from './pages/certificates/certificates.compone
 const routeConfig: Routes = [
     {
       path: '',
-      component: AboutComponent,
-      title: 'About Me',
+      component: AboutComponent
     },
     {
       path: 'projects',
-      component: ProjectsComponent,
-      title: 'My Projects',
+      component: ProjectsComponent
     },
     {
         path: 'certificates',
-        component: CertificatesComponent,
-        title: 'My Certificates',
+        component: CertificatesComponent
       }
   ];
   export default routeConfig;

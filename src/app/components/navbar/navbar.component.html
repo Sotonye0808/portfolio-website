@@ -2,9 +2,9 @@
     <div class="container mx-auto flex justify-between items-center">
       <a routerLink="/" class="text-white text-2xl font-bold">MyPortfolio</a>
       <div class="space-x-4">
-        <a routerLink="/about" class="text-gray-300 dark:text-gray-400 hover:text-white">About</a>
-        <a routerLink="/projects" class="text-gray-300 dark:text-gray-400 hover:text-white">Projects</a>
-        <a routerLink="/certificates" class="text-gray-300 dark:text-gray-400 hover:text-white">Certificates</a>
+        <a [routerLink]="['/']" class="text-gray-300 dark:text-gray-400 hover:text-white">About</a>
+        <a [routerLink]="['/projects']" class="text-gray-300 dark:text-gray-400 hover:text-white">Projects</a>
+        <a [routerLink]="['/certificates']" class="text-gray-300 dark:text-gray-400 hover:text-white">Certificates</a>
       </div>
     </div>
   </nav>

@@ -3,6 +3,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { CertificatesComponent } from './pages/certificates/certificates.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { RouterOutlet, RouterModule } from '@angular/router';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import { RouterOutlet, RouterModule } from '@angular/router';
     AboutComponent, 
     ProjectsComponent, 
     CertificatesComponent, 
+    NavbarComponent,
     RouterOutlet,
     RouterModule
   ],
