@@ -7,6 +7,9 @@ import { ProjectsComponent } from './pages/projects/projects.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -17,7 +20,8 @@ import { FooterComponent } from './components/footer/footer.component';
     NavbarComponent,
     FooterComponent,
     RouterOutlet,
-    RouterModule
+    RouterModule,
+    FontAwesomeModule
   ],
   animations: [slideInAnimation],
   templateUrl: './app.component.html',
@@ -26,7 +30,9 @@ import { FooterComponent } from './components/footer/footer.component';
 export class AppComponent {
   title = 'portfolio-website';
   public animationsDisabled = false;
+
   constructor(private contexts: ChildrenOutletContexts) {}
+
   getRouteAnimationData() {
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }

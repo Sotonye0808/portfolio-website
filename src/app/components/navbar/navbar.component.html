@@ -1,11 +1,33 @@
 <nav class="bg-gray-800 dark:bg-gray-900 p-4">
     <div class="container mx-auto flex justify-between items-center">
-      <a routerLink="/" class="text-white text-2xl font-bold">MyPortfolio</a>
-      <div class="space-x-4">
+      <div class="flex">
+        <a routerLink="/" class="text-white text-2xl font-bold ">MyPortfolio</a>
+        <!-- Theme Toggle -->
+        <app-theme-toggle></app-theme-toggle>
+      </div>
+      <div class="hidden space-x-6 md:flex">
         <a [routerLink]="['/about']" class="text-gray-300 dark:text-gray-400 hover:text-white">About</a>
         <a [routerLink]="['/projects']" class="text-gray-300 dark:text-gray-400 hover:text-white">Projects</a>
         <a [routerLink]="['/certificates']" class="text-gray-300 dark:text-gray-400 hover:text-white">Certificates</a>
       </div>
+
+
+      <!-- Hamburger Icon -->
+      
+      <button id="menu-btn" class="block hamburger md:hidden focus:outline-none" (click)="toggleMenu()">
+      <span class="hamburger-top"></span>
+      <span class="hamburger-middle"></span>
+      <span class="hamburger-bottom"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden">
+      <div id="mobile-menu" class="absolute flex flex-col items-center hidden self-end py-8 space-y-6 font-bold bg-gray-800 dark:bg-gray-900 sm:w-auto sm:self-center left-24 right-0 slide-out transition-transform duration-300 ease-in-out">
+        <a [routerLink]="['/about']" class="text-gray-300 dark:text-gray-400 hover:text-white">About</a>
+        <a [routerLink]="['/projects']" class="text-gray-300 dark:text-gray-400 hover:text-white">Projects</a>
+        <a [routerLink]="['/certificates']" class="text-gray-300 dark:text-gray-400 hover:text-white">Certificates</a>
+        </div>
     </div>
   </nav>
   
