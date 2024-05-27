@@ -11,19 +11,19 @@ import { CertificatesComponent } from './pages/certificates/certificates.compone
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
     ThemeToggleComponent,
-    FooterComponent,
-    AboutComponent,
-    ProjectsComponent,
-    CertificatesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CertificatesComponent,
+    ProjectsComponent,
+    FooterComponent,
+    AboutComponent,
+    NavbarComponent,
+    AppComponent,
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
 })
 export class AppModule { }
