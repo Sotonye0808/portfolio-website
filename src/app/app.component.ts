@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { ChildrenOutletContexts, RouterOutlet, RouterModule } from '@angular/router';
+import { slideInAnimation } from './animations/slide.animation';
 import { AboutComponent } from './pages/about/about.component';
 import { CertificatesComponent } from './pages/certificates/certificates.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
-import { RouterOutlet, RouterModule } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +15,19 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     ProjectsComponent, 
     CertificatesComponent, 
     NavbarComponent,
+    FooterComponent,
     RouterOutlet,
     RouterModule
   ],
+  animations: [slideInAnimation],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'portfolio-website';
+  public animationsDisabled = false;
+  constructor(private contexts: ChildrenOutletContexts) {}
+  getRouteAnimationData() {
+    return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
+  }
 }

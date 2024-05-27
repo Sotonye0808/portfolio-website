@@ -6,18 +6,27 @@ import { CertificatesComponent } from './pages/certificates/certificates.compone
 
 
 const routeConfig: Routes = [
-    {
-      path: '',
-      component: AboutComponent
-    },
-    {
-      path: 'projects',
-      component: ProjectsComponent
-    },
-    {
-        path: 'certificates',
-        component: CertificatesComponent
-      }
+  {
+    path: '',
+    redirectTo: 'about',
+    pathMatch: 'full',
+    data: { animation: 'AboutPage' }
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+    data: { animation: 'AboutPage' }
+  },
+  {
+    path: 'projects',
+    component: ProjectsComponent,
+    data: { animation: 'ProjectsPage' }
+  },
+  {
+    path: 'certificates',
+    component: CertificatesComponent,
+    data: { animation: 'CertificatesPage' }
+  }
   ];
   export default routeConfig;
 

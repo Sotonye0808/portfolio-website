@@ -1,7 +1,7 @@
-
-<main>
-    <app-navbar></app-navbar>
-    <section class="content">
-      <router-outlet></router-outlet>
-    </section>
+<app-navbar></app-navbar>
+<div  [@routeAnimations]="getRouteAnimationData()">
+  <main class="content">
+    <router-outlet></router-outlet>
   </main>
+</div>
+<app-footer></app-footer>
