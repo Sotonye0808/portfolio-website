@@ -37,9 +37,11 @@ export class ThemeToggleComponent implements OnInit {
       this.darkMode = storedTheme === 'dark';
       if (this.darkMode) {
         document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
         this.faIcon = faSun;
       } else {
         document.documentElement.classList.remove('dark');
+        document.body.classList.remove('dark');
         this.faIcon = faMoon;
       }
     } else {
@@ -47,6 +49,7 @@ export class ThemeToggleComponent implements OnInit {
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         this.darkMode = true;
         document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
         this.faIcon = faSun;
       }
     }
@@ -56,12 +59,14 @@ export class ThemeToggleComponent implements OnInit {
     this.darkMode = !this.darkMode;
     if (this.darkMode) {
       document.documentElement.classList.add('dark');
+      document.body.classList.add('dark');
       this.faIcon = faSun;
       if (this.isLocalStorageAvailable()) {
         localStorage.setItem('theme', 'dark');
       }
     } else {
       document.documentElement.classList.remove('dark');
+      document.body.classList.remove('dark');
       this.faIcon = faMoon;
       if (this.isLocalStorageAvailable()) {
         localStorage.setItem('theme', 'light');
