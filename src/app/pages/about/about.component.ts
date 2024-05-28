@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faGithub, faLinkedin, faXTwitter, faInstagram, faAngular, faReact, faHtml5, faCss3, faBootstrap, faNode, faPython, faJava, faGit, faSass } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin, faXTwitter, faInstagram, faAngular, faReact, faHtml5, faCss3, faBootstrap, faNode, faPython, faJsSquare, faJava, faGit, faSass } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faYinYang } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-about',
@@ -16,7 +16,7 @@ export class AboutComponent {
   faTwitter = faXTwitter;
   faInstagram = faInstagram;
   faEnvelope = faEnvelope;
-  faSass = faSass
+  faSass = faSass;
   faAngular = faAngular;
   faReact = faReact;
   faHtml5 = faHtml5;
@@ -26,4 +26,6 @@ export class AboutComponent {
   faPython = faPython;
   faJava = faJava;
   faGit = faGit;
+  faJs = faJsSquare;
+  faYY = faYinYang;
 }
