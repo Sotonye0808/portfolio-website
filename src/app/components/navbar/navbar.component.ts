@@ -3,7 +3,7 @@ import { AboutComponent } from '../../pages/about/about.component';
 import { CertificatesComponent } from '../../pages/certificates/certificates.component';
 import { ProjectsComponent } from '../../pages/projects/projects.component';
 import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
-import { RouterOutlet, RouterModule } from '@angular/router';
+import { Router, RouterOutlet, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -14,13 +14,13 @@ import { RouterOutlet, RouterModule } from '@angular/router';
     CertificatesComponent,
     ThemeToggleComponent,
     RouterOutlet,
-    RouterModule,
+    RouterModule
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef, private router: Router) {}
 
   toggleMenu() {
     const btn = this.elementRef.nativeElement.querySelector('#menu-btn');
