@@ -1,0 +1,7 @@
+{
+  "routes": [
+    "/about",
+    "/certificates",
+    "/projects"
+  ]
+}
