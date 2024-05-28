@@ -15,8 +15,8 @@
           </button>
           <div class="mx-4 text-center transition-transform duration-300 ease-in-out transform fade-in-out">
             <img [src]="frontendCertificates[currentFrontendIndex].image" alt="Certificate Image" class="rounded-lg w-full max-w-sm mx-auto">
-            <h4 class="text-xl font-semibold mt-4">{{ frontendCertificates[currentFrontendIndex].title }}</h4>
-            <p class="mt-2">{{ frontendCertificates[currentFrontendIndex].description }}</p>
+            <h4 class="text-xl font-bold mt-4">{{ frontendCertificates[currentFrontendIndex].title }}</h4>
+            <p class="mt-2 font-semibold">{{ frontendCertificates[currentFrontendIndex].description }}</p>
             <a [href]="frontendCertificates[currentFrontendIndex].link" class="text-blue-500 hover:underline transition-colors duration-300 ease-in-out" target="_blank">View Certificate</a>
           </div>
           <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full transition-transform duration-300 ease-in-out transform hover:scale-110" (click)="nextCertificate('frontend')">
@@ -37,8 +37,8 @@
           </button>
           <div class="mx-4 text-center transition-transform duration-300 ease-in-out transform fade-in-out">
             <img [src]="backendCertificates[currentBackendIndex].image" alt="Certificate Image" class="rounded-lg w-full max-w-sm mx-auto">
-            <h4 class="text-xl font-semibold mt-4">{{ backendCertificates[currentBackendIndex].title }}</h4>
-            <p class="mt-2">{{ backendCertificates[currentBackendIndex].description }}</p>
+            <h4 class="text-xl font-bold mt-4">{{ backendCertificates[currentBackendIndex].title }}</h4>
+            <p class="mt-2 font-semibold">{{ backendCertificates[currentBackendIndex].description }}</p>
             <a [href]="backendCertificates[currentBackendIndex].link" class="text-blue-500 hover:underline transition-colors duration-300 ease-in-out" target="_blank">View Certificate</a>
           </div>
           <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full transition-transform duration-300 ease-in-out transform hover:scale-110" (click)="nextCertificate('backend')">
@@ -59,8 +59,8 @@
           </button>
           <div class="mx-4 text-center transition-transform duration-300 ease-in-out transform fade-in-out">
             <img [src]="fullstackCertificates[currentFullstackIndex].image" alt="Certificate Image" class="rounded-lg w-full max-w-sm mx-auto">
-            <h4 class="text-xl font-semibold mt-4">{{ fullstackCertificates[currentFullstackIndex].title }}</h4>
-            <p class="mt-2">{{ fullstackCertificates[currentFullstackIndex].description }}</p>
+            <h4 class="text-xl font-bold mt-4">{{ fullstackCertificates[currentFullstackIndex].title }}</h4>
+            <p class="mt-2 font-semibold">{{ fullstackCertificates[currentFullstackIndex].description }}</p>
             <a [href]="fullstackCertificates[currentFullstackIndex].link" class="text-blue-500 hover:underline transition-colors duration-300 ease-in-out" target="_blank">View Certificate</a>
           </div>
           <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full transition-transform duration-300 ease-in-out transform hover:scale-110" (click)="nextCertificate('fullstack')">
