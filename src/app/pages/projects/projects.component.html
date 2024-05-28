@@ -2,7 +2,7 @@
   <div class="container mx-auto text-center">
     <h2 class="text-4xl font-extrabold mb-8 fade-in">Projects</h2>
   </div>
-
+  
   <div class="container mx-auto">
     <!-- Frameworks and Libraries Section -->
     <div class="mb-16 fade-in-up">
@@ -10,54 +10,54 @@
       <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 relative">
         <div class="absolute top-2 right-2 text-sm font-semibold text-gray-600 dark:text-gray-300">Projects: {{ frameworksLibrariesProjects.length }}</div>
         <div class="flex items-center justify-between">
-          <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full transition-transform duration-300 ease-in-out transform hover:scale-110" (click)="prevProject('frameworksLibraries')">
+          <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full" (click)="prevProject('frameworksLibraries')">
             <fa-icon [icon]="faArrowLeft"></fa-icon>
           </button>
-          <div class="mx-4 text-center transition-transform duration-300 ease-in-out transform fade-in-out">
+          <div class="mx-4 text-center">
             <img [src]="frameworksLibrariesProjects[currentFrameworksLibrariesIndex].image" alt="Project Image" class="rounded-lg w-full max-w-sm mx-auto">
-            <h4 class="text-xl font-semibold mt-4">{{ frameworksLibrariesProjects[currentFrameworksLibrariesIndex].title }}</h4>
-            <p class="mt-2">{{ frameworksLibrariesProjects[currentFrameworksLibrariesIndex].description }}</p>
-            <div class="mt-4 flex justify-around">
-              <a [href]="frameworksLibrariesProjects[currentFrameworksLibrariesIndex].githubLink" class="btn-github" target="_blank">
-                <fa-icon [icon]="faGithub"></fa-icon>
+            <h4 class="text-xl font-bold mt-4">{{ frameworksLibrariesProjects[currentFrameworksLibrariesIndex].title }}</h4>
+            <p class="mt-2 font-semibold">{{ frameworksLibrariesProjects[currentFrameworksLibrariesIndex].description }}</p>
+            <div class="mt-4">
+              <a [href]="frameworksLibrariesProjects[currentFrameworksLibrariesIndex].githubLink" class="text-blue-500 hover:underline inline-flex items-center" target="_blank">
+                <fa-icon [icon]="faGithub" class="mr-2"></fa-icon>
                 {{ frameworksLibrariesProjects[currentFrameworksLibrariesIndex].githubRepo }}
               </a>
-              <a [href]="frameworksLibrariesProjects[currentFrameworksLibrariesIndex].liveLink" class="btn-live" target="_blank">
-                {{ frameworksLibrariesProjects[currentFrameworksLibrariesIndex].title }}
+              <a [href]="frameworksLibrariesProjects[currentFrameworksLibrariesIndex].liveLink" class="text-blue-500 hover:underline inline-flex items-center ml-4" target="_blank">
+                View {{ frameworksLibrariesProjects[currentFrameworksLibrariesIndex].title }}
               </a>
             </div>
           </div>
-          <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full transition-transform duration-300 ease-in-out transform hover:scale-110" (click)="nextProject('frameworksLibraries')">
+          <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full" (click)="nextProject('frameworksLibraries')">
             <fa-icon [icon]="faArrowRight"></fa-icon>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Basic HTML, CSS and JS Section -->
+    <!-- Basic HTML, CSS, and JS Section -->
     <div class="mb-16 fade-in-up">
-      <h3 class="text-2xl font-bold mb-4">Basic HTML, CSS and JS</h3>
+      <h3 class="text-2xl font-bold mb-4">Basic HTML, CSS, and JS</h3>
       <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 relative">
         <div class="absolute top-2 right-2 text-sm font-semibold text-gray-600 dark:text-gray-300">Projects: {{ basicHtmlCssJsProjects.length }}</div>
         <div class="flex items-center justify-between">
-          <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full transition-transform duration-300 ease-in-out transform hover:scale-110" (click)="prevProject('basicHtmlCssJs')">
+          <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full" (click)="prevProject('basicHtmlCssJs')">
             <fa-icon [icon]="faArrowLeft"></fa-icon>
           </button>
-          <div class="mx-4 text-center transition-transform duration-300 ease-in-out transform fade-in-out">
+          <div class="mx-4 text-center">
             <img [src]="basicHtmlCssJsProjects[currentBasicHtmlCssJsIndex].image" alt="Project Image" class="rounded-lg w-full max-w-sm mx-auto">
-            <h4 class="text-xl font-semibold mt-4">{{ basicHtmlCssJsProjects[currentBasicHtmlCssJsIndex].title }}</h4>
-            <p class="mt-2">{{ basicHtmlCssJsProjects[currentBasicHtmlCssJsIndex].description }}</p>
-            <div class="mt-4 flex justify-around">
-              <a [href]="basicHtmlCssJsProjects[currentBasicHtmlCssJsIndex].githubLink" class="btn-github" target="_blank">
-                <fa-icon [icon]="faGithub"></fa-icon>
+            <h4 class="text-xl font-bold mt-4">{{ basicHtmlCssJsProjects[currentBasicHtmlCssJsIndex].title }}</h4>
+            <p class="mt-2 font-semibold">{{ basicHtmlCssJsProjects[currentBasicHtmlCssJsIndex].description }}</p>
+            <div class="mt-4">
+              <a [href]="basicHtmlCssJsProjects[currentBasicHtmlCssJsIndex].githubLink" class="text-blue-500 hover:underline inline-flex items-center" target="_blank">
+                <fa-icon [icon]="faGithub" class="mr-2"></fa-icon>
                 {{ basicHtmlCssJsProjects[currentBasicHtmlCssJsIndex].githubRepo }}
               </a>
-              <a [href]="basicHtmlCssJsProjects[currentBasicHtmlCssJsIndex].liveLink" class="btn-live" target="_blank">
-                {{ basicHtmlCssJsProjects[currentBasicHtmlCssJsIndex].title }}
+              <a [href]="basicHtmlCssJsProjects[currentBasicHtmlCssJsIndex].liveLink" class="text-blue-500 hover:underline inline-flex items-center ml-4" target="_blank">
+                View {{ basicHtmlCssJsProjects[currentBasicHtmlCssJsIndex].title }}
               </a>
             </div>
           </div>
-          <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full transition-transform duration-300 ease-in-out transform hover:scale-110" (click)="nextProject('basicHtmlCssJs')">
+          <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full" (click)="nextProject('basicHtmlCssJs')">
             <fa-icon [icon]="faArrowRight"></fa-icon>
           </button>
         </div>
@@ -70,24 +70,24 @@
       <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 relative">
         <div class="absolute top-2 right-2 text-sm font-semibold text-gray-600 dark:text-gray-300">Projects: {{ pythonProjects.length }}</div>
         <div class="flex items-center justify-between">
-          <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full transition-transform duration-300 ease-in-out transform hover:scale-110" (click)="prevProject('python')">
+          <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full" (click)="prevProject('python')">
             <fa-icon [icon]="faArrowLeft"></fa-icon>
           </button>
-          <div class="mx-4 text-center transition-transform duration-300 ease-in-out transform fade-in-out">
+          <div class="mx-4 text-center">
             <img [src]="pythonProjects[currentPythonIndex].image" alt="Project Image" class="rounded-lg w-full max-w-sm mx-auto">
-            <h4 class="text-xl font-semibold mt-4">{{ pythonProjects[currentPythonIndex].title }}</h4>
-            <p class="mt-2">{{ pythonProjects[currentPythonIndex].description }}</p>
-            <div class="mt-4 flex justify-around">
-              <a [href]="pythonProjects[currentPythonIndex].githubLink" class="btn-github" target="_blank">
-                <fa-icon [icon]="faGithub"></fa-icon>
+            <h4 class="text-xl font-bold mt-4">{{ pythonProjects[currentPythonIndex].title }}</h4>
+            <p class="mt-2 font-semibold">{{ pythonProjects[currentPythonIndex].description }}</p>
+            <div class="mt-4">
+              <a [href]="pythonProjects[currentPythonIndex].githubLink" class="text-blue-500 hover:underline inline-flex items-center" target="_blank">
+                <fa-icon [icon]="faGithub" class="mr-2"></fa-icon>
                 {{ pythonProjects[currentPythonIndex].githubRepo }}
               </a>
-              <a [href]="pythonProjects[currentPythonIndex].liveLink" class="btn-live" target="_blank">
-                {{ pythonProjects[currentPythonIndex].title }}
+              <a [href]="pythonProjects[currentPythonIndex].liveLink" class="text-blue-500 hover:underline inline-flex items-center ml-4" target="_blank">
+                View {{ pythonProjects[currentPythonIndex].title }}
               </a>
             </div>
           </div>
-          <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full transition-transform duration-300 ease-in-out transform hover:scale-110" (click)="nextProject('python')">
+          <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full" (click)="nextProject('python')">
             <fa-icon [icon]="faArrowRight"></fa-icon>
           </button>
         </div>
@@ -100,24 +100,24 @@
       <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 relative">
         <div class="absolute top-2 right-2 text-sm font-semibold text-gray-600 dark:text-gray-300">Projects: {{ miniProjects.length }}</div>
         <div class="flex items-center justify-between">
-          <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full transition-transform duration-300 ease-in-out transform hover:scale-110" (click)="prevProject('miniProjects')">
+          <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full" (click)="prevProject('miniProjects')">
             <fa-icon [icon]="faArrowLeft"></fa-icon>
           </button>
-          <div class="mx-4 text-center transition-transform duration-300 ease-in-out transform fade-in-out">
+          <div class="mx-4 text-center">
             <img [src]="miniProjects[currentMiniProjectsIndex].image" alt="Project Image" class="rounded-lg w-full max-w-sm mx-auto">
-            <h4 class="text-xl font-semibold mt-4">{{ miniProjects[currentMiniProjectsIndex].title }}</h4>
-            <p class="mt-2">{{ miniProjects[currentMiniProjectsIndex].description }}</p>
-            <div class="mt-4 flex justify-around">
-              <a [href]="miniProjects[currentMiniProjectsIndex].githubLink" class="btn-github" target="_blank">
-                <fa-icon [icon]="faGithub"></fa-icon>
+            <h4 class="text-xl font-bold mt-4">{{ miniProjects[currentMiniProjectsIndex].title }}</h4>
+            <p class="mt-2 font-semibold">{{ miniProjects[currentMiniProjectsIndex].description }}</p>
+            <div class="mt-4">
+              <a [href]="miniProjects[currentMiniProjectsIndex].githubLink" class="text-blue-500 hover:underline inline-flex items-center" target="_blank">
+                <fa-icon [icon]="faGithub" class="mr-2"></fa-icon>
                 {{ miniProjects[currentMiniProjectsIndex].githubRepo }}
               </a>
-              <a [href]="miniProjects[currentMiniProjectsIndex].liveLink" class="btn-live" target="_blank">
-                {{ miniProjects[currentMiniProjectsIndex].title }}
+              <a [href]="miniProjects[currentMiniProjectsIndex].liveLink" class="text-blue-500 hover:underline inline-flex items-center ml-4" target="_blank">
+                View {{ miniProjects[currentMiniProjectsIndex].title }}
               </a>
             </div>
           </div>
-          <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full transition-transform duration-300 ease-in-out transform hover:scale-110" (click)="nextProject('miniProjects')">
+          <button class="p-2 bg-gray-200 dark:bg-gray-600 rounded-full" (click)="nextProject('miniProjects')">
             <fa-icon [icon]="faArrowRight"></fa-icon>
           </button>
         </div>
