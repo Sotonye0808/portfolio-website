@@ -5,11 +5,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## My Portfolio website
 
 Live [here](https://sotonye-dagogo.netlify.app/)
-**\*\*Still under development**
+**The portfolio website for *Sotonye Dagogo*, software developer.**
 
 ### Framework:
 
-Angular
+- Angular
 
 ### Styling:
 

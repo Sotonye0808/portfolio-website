@@ -444,7 +444,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 --------------------------------------------------------------------------------
-Package: @fortawesome/free-solid-svg-icons
+Package: @fortawesome/free-brands-svg-icons
 License: "(CC-BY-4.0 AND MIT)"
 
 Fonticons, Inc. (https://fontawesome.com)
@@ -614,7 +614,7 @@ Awesome, nor vice versa. **Please do not use brand logos for any purpose except
 to represent the company, product, or service to which they refer.**
 
 --------------------------------------------------------------------------------
-Package: @fortawesome/free-brands-svg-icons
+Package: @fortawesome/free-solid-svg-icons
 License: "(CC-BY-4.0 AND MIT)"
 
 Fonticons, Inc. (https://fontawesome.com)
