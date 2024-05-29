@@ -129,7 +129,7 @@ export class ProjectsComponent {
     {
       image: 'dbm-package.jpg',
       title: 'MySQL Database Manager Package',
-      description: 'This is a simple MySQL database manager package built using Python. It allows users to perform basic CRUD operations on a MySQL database, as well as other complex SQL database queries lik joins. Please take a look at the README file in the GitHub repository for more information on how to use the package',
+      description: 'This is a simple MySQL database manager package built using Python. It allows users to perform basic CRUD operations on a MySQL database, as well as other complex SQL database queries like joins. Please take a look at the README file in the GitHub repository for more information on how to use the package',
       githubLink: 'https://github.com/Sotonye0808/DBM_package',
       githubRepo: 'DBM_package',
       liveLink: 'https://sotonye0808.github.io/DBM_package/'
