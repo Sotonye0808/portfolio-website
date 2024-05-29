@@ -107,7 +107,7 @@
             <img [src]="miniProjects[currentMiniProjectsIndex].image" alt="Project Image" class="rounded-lg w-full max-w-sm mx-auto">
             <h4 class="text-xl font-bold mt-4">{{ miniProjects[currentMiniProjectsIndex].title }}</h4>
             <p class="mt-2 font-semibold">{{ miniProjects[currentMiniProjectsIndex].description }}</p>
-            <div class="mt-4">
+            <div class="mt-4" id="mini-projects_">
               <a [href]="miniProjects[currentMiniProjectsIndex].githubLink" class="text-blue-500 hover:underline inline-flex items-center" target="_blank">
                 <fa-icon [icon]="faGithub" class="mr-2"></fa-icon>
                 {{ miniProjects[currentMiniProjectsIndex].githubRepo }}
