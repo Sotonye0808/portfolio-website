@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faGithub, faLinkedin, faXTwitter, faInstagram, faAngular, faReact, faHtml5, faCss3, faBootstrap, faNode, faPython, faJsSquare, faJava, faGit, faSass } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faYinYang } from '@fortawesome/free-solid-svg-icons';
@@ -6,7 +7,9 @@ import { faEnvelope, faYinYang } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [FontAwesomeModule],
+  imports: [
+    FontAwesomeModule, 
+    RouterLink],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })

@@ -6,8 +6,8 @@
   
   <div class="container mx-auto mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
     <div class="fade-in-left font-extrabold md:flex flex-col items-center">
-      <img src="profile-picture.jpg" alt="Profile Picture" id="profile-picture" class="rounded-full mx-auto md:mx-0">
-      <p class="text-2xl text-center md:relative">DAGOGO Sotonye A.</p>
+      <img src="profile-picture.jpg" alt="Profile Picture" id="profile-picture" class="fade-in rounded-full w-60 md:w-80 lg:w-100 mx-auto md:mx-0">
+      <p class="text-2xl mt-2 text-center md:relative">DAGOGO Sotonye A.</p>
     </div>
     <div class="fade-in-right indent-12 font-bold">
       <p class="mb-4">Welcome to my Portfolio Website! I am a fullstack web developer, specializing in a host of different technologies such as Angular, React, SQL, NodeJS, Python and much more.</p>
@@ -32,26 +32,28 @@
         <h2 class="font-extrabold text-xl mb-2">Tech Stack</h2>
         <p class="mb-3 font-semibold">Including, but not limited to:</p>
         <div id="tech-stack-links" class="flex flex-wrap gap-4 justify-center">
-          <a href="#tech-stack-links"><fa-icon [icon]="faAngular" size="3x"></fa-icon></a>
-          <a href="#tech-stack-links"><fa-icon [icon]="faReact" size="3x"></fa-icon></a>
-          <a href="#tech-stack-links"><fa-icon [icon]="faHtml5" size="3x"></fa-icon></a>
-          <a href="#tech-stack-links"><fa-icon [icon]="faCss3" size="3x"></fa-icon></a>
-          <a href="#tech-stack-links"><fa-icon [icon]="faJs" size="3x"></fa-icon></a> 
-          <a href="#tech-stack-links"><fa-icon [icon]="faSass" size="3x"></fa-icon></a>
-          <a href="#tech-stack-links"><fa-icon [icon]="faBootstrap" size="3x"></fa-icon></a>
-          <a href="#tech-stack-links"><fa-icon [icon]="faPython" size="3x"></fa-icon></a>
-          <a href="#tech-stack-links"><fa-icon [icon]="faNode" size="3x"></fa-icon></a>
-          <a href="#tech-stack-links"><fa-icon [icon]="faGit" size="3x"></fa-icon></a>
-          <a href="#tech-stack-links"><fa-icon [icon]="faJava" size="3x"></fa-icon></a> 
+          <a href="/projects"><fa-icon [icon]="faAngular" size="3x"></fa-icon></a>
+          <a href="/projects"><fa-icon [icon]="faReact" size="3x"></fa-icon></a>
+          <a href="/projects#frameworks-and-libraries"><fa-icon [icon]="faHtml5" size="3x"></fa-icon></a>
+          <a href="/projects#frameworks-and-libraries"><fa-icon [icon]="faCss3" size="3x"></fa-icon></a>
+          <a href="/projects#basic-html-css-js"><fa-icon [icon]="faJs" size="3x"></fa-icon></a> 
+          <a href="/projects"><fa-icon [icon]="faSass" size="3x"></fa-icon></a>
+          <a href="/projects"><fa-icon [icon]="faBootstrap" size="3x"></fa-icon></a>
+          <a href="/projects#python"><fa-icon [icon]="faPython" size="3x"></fa-icon></a>
+          <a href="/projects"><fa-icon [icon]="faNode" size="3x"></fa-icon></a>
+          <a href="/projects#basic-html-css-js"><fa-icon [icon]="faGit" size="3x"></fa-icon></a>
+          <a href="/projects#frameworks-and-libraries"><fa-icon [icon]="faJava" size="3x"></fa-icon></a> 
         </div>
       </div>
       <div class="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out fade-in-up" id="CV">
         <h2 class="font-extrabold text-xl mb-4">CV</h2>
-        <a class="float-right text-center" target="_blank" href="Sotonye_Dagogo_CV.docx.pdf">
-          <img src="CV_preview.jpg" alt="CV Preview"  width="150">
-          View CV
-        </a>
-        <p class="font-semibold">Have a look at it here:</p>
+        <div class="grid grid-cols-2 gap-4 place-content-center">
+          <p class="font-semibold">Have a look at it here:</p>
+          <a target="_blank" href="Sotonye_Dagogo_CV.pdf">
+            <img src="CV_preview.jpg" alt="CV Preview"  width="150" class="rounded-md border-solid border-2">
+            View CV
+          </a>
+        </div>
         
       </div>
       <div class="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out fade-in-up">
