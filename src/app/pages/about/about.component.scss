@@ -63,3 +63,13 @@
   #tech-stack-links a:hover {
     color: green;
   }
+
+  #CV a {
+    color: #ff6b6b;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+  
+    &:hover {
+      transform: scale(1.2) ;
+    }
+  }
