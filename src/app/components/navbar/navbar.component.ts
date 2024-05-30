@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { AboutComponent } from '../../pages/about/about.component';
 import { CertificatesComponent } from '../../pages/certificates/certificates.component';
 import { ProjectsComponent } from '../../pages/projects/projects.component';
@@ -33,6 +33,20 @@ export class NavbarComponent {
       nav.classList.remove('slide-out');
       nav.classList.add('slide-in');
     } else {
+      nav.classList.remove('slide-in');
+      nav.classList.add('slide-out');
+      setTimeout(() => {
+        nav.classList.add('hidden');
+      }, 300); // Wait for the animation to finish
+    }
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const btn = this.elementRef.nativeElement.querySelector('#menu-btn');
+    const nav = this.elementRef.nativeElement.querySelector('#mobile-menu');
+    if (!nav.classList.contains('hidden')) {
+      btn.classList.remove('open');
       nav.classList.remove('slide-in');
       nav.classList.add('slide-out');
       setTimeout(() => {
