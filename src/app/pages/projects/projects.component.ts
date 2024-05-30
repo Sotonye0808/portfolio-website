@@ -181,8 +181,8 @@ export class ProjectsComponent {
       image: 'penguin-transforms.jpg',
       title: 'Penguin via Transforms',
       description: 'This is a simple penguin animation built using basic HTML and CSS. It is a project from FreeCodeCamp.',
-      githubLink: 'https://github.com/Sotonye0808/penquinViaTransforms',
-      githubRepo: 'penquinViaTransforms',
+      githubLink: 'https://github.com/Sotonye0808/penguinViaTransforms',
+      githubRepo: 'penguinViaTransforms',
       liveLink: 'https://sotonye0808.github.io/penguinViaTransforms/'
     },
     {
