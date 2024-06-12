@@ -59,7 +59,7 @@ export class ProjectsComponent {
     {
       image: 'markdown-previewer.jpg',
       title: 'Markdown Previewer',
-      description: 'This is a simple markdown previewer built using React and styled with Bootstrap. It allows users to write markdown in the editor and see the preview in the previewer. It also has a clear button to clear the editor and previewer.',
+      description: 'This is a simple markdown previewer built using React and styled with Bootstrap. It allows users to write markdown in the editor and see the preview in the previewer through data-binding.',
       githubLink: 'https://github.com/Sotonye0808/markdownPreviewer',
       githubRepo: 'markdownPreviewer',
       liveLink: 'https://sotonye0808.github.io/markdownPreviewer/'
