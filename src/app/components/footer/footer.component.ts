@@ -15,4 +15,6 @@ export class FooterComponent {
   faLinkedin = faLinkedin;
   faTwitter = faXTwitter;
   faEnvelope = faEnvelope;
+  
+  year = new Date().getFullYear();
 }
