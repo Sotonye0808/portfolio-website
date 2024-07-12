@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
@@ -14,63 +15,82 @@ export class ThemeToggleComponent implements OnInit {
   faMoon = faMoon;
   faSun = faSun;
 
+  private prefersDarkScheme: MediaQueryList | undefined;
+  private localStorageKey = 'theme';
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngOnInit() {
-    if (this.isLocalStorageAvailable()) {
-      this.checkTheme();
+    if (isPlatformBrowser(this.platformId)) {
+      this.prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+      if (this.isLocalStorageAvailable()) {
+        this.initializeTheme();
+        this.listenToSystemThemeChanges();
+      }
     }
   }
-
+  
   isLocalStorageAvailable(): boolean {
-    try {
-      const test = '__localStorageTest__';
-      localStorage.setItem(test, test);
-      localStorage.removeItem(test);
-      return true;
-    } catch {
-      return false;
+    if (isPlatformBrowser(this.platformId)) {
+      try {
+        const test = '__localStorageTest__';
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return true;
+      } catch {
+        return false;
+      }
     }
+    return false;
   }
-
-  checkTheme() {
-    const storedTheme = localStorage.getItem('theme');
+  
+  initializeTheme() {
+    const storedTheme = localStorage.getItem(this.localStorageKey);
     if (storedTheme) {
-      this.darkMode = storedTheme === 'dark';
-      if (this.darkMode) {
-        document.documentElement.classList.add('dark');
-        document.body.classList.add('dark');
-        this.faIcon = faSun;
-      } else {
-        document.documentElement.classList.remove('dark');
-        document.body.classList.remove('dark');
-        this.faIcon = faMoon;
-      }
-    } else {
-      // Default to system preference
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        this.darkMode = true;
-        document.documentElement.classList.add('dark');
-        document.body.classList.add('dark');
-        this.faIcon = faSun;
-      }
+      this.applyTheme(storedTheme === 'dark');
+    } else if (this.prefersDarkScheme) {
+      this.applyTheme(this.prefersDarkScheme.matches);
     }
   }
-
-  toggleTheme() {
-    this.darkMode = !this.darkMode;
+  
+  applyTheme(isDarkMode: boolean) {
+    this.darkMode = isDarkMode;
     if (this.darkMode) {
       document.documentElement.classList.add('dark');
       document.body.classList.add('dark');
-      this.faIcon = faSun;
-      if (this.isLocalStorageAvailable()) {
-        localStorage.setItem('theme', 'dark');
-      }
+      this.faIcon = this.faSun;
     } else {
       document.documentElement.classList.remove('dark');
       document.body.classList.remove('dark');
-      this.faIcon = faMoon;
-      if (this.isLocalStorageAvailable()) {
-        localStorage.setItem('theme', 'light');
-      }
+      this.faIcon = this.faMoon;
+    }
+  }
+  
+  listenToSystemThemeChanges() {
+    if (this.prefersDarkScheme) {
+      this.prefersDarkScheme.addEventListener('change', (event) => {
+        const storedTheme = localStorage.getItem(this.localStorageKey);
+        if (!storedTheme) {
+          this.applyTheme(event.matches);
+        } else {
+          const currentTheme = storedTheme === 'dark';
+          const systemPreferenceChanged = this.prefersDarkScheme!.matches !== currentTheme;
+          if (systemPreferenceChanged) {
+            if (this.prefersDarkScheme) {
+              this.applyTheme(this.prefersDarkScheme.matches);
+            localStorage.removeItem(this.localStorageKey);
+            }
+          }
+        }
+      });
+    }
+  }
+  
+  toggleTheme() {
+    this.darkMode = !this.darkMode;
+    this.applyTheme(this.darkMode);
+    if (this.isLocalStorageAvailable()) {
+      localStorage.setItem(this.localStorageKey, this.darkMode ? 'dark' : 'light');
     }
   }
 }

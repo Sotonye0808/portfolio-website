@@ -1,7 +1,7 @@
-<nav class="bg-gray-800 dark:bg-gray-900 px-4 py-2 transition delay-150 duration-300 ease-in-out fixed w-full z-50">
+<nav class="bg-gray-800 dark:bg-gray-900 px-4 py-2 transition delay-150 duration-300 ease-in-out fixed md:w-full md:mt-0 md:mx-0 md:rounded-none z-50 w-11/12 mt-1 mx-4 rounded-full">
   <div class="container mx-auto flex justify-between items-center">
     <div class="flex">
-      <a routerLink="/" class="text-white text-3xl font-bold">Sotonye</a>
+      <a routerLink="/" class="text-white text-3xl font-bold flex pb-1">Sotonye</a>
       <!-- Theme Toggle -->
       <app-theme-toggle></app-theme-toggle>
     </div>
@@ -12,7 +12,7 @@
     </div>
 
     <!-- Hamburger Icon -->
-    <button id="menu-btn" class="block hamburger md:hidden focus:outline-none" (click)="toggleMenu()">
+    <button id="menu-btn" class="block mt-2 hamburger md:hidden focus:outline-none" (click)="toggleMenu()">
       <span class="hamburger-top bg-gray-100"></span>
       <span class="hamburger-middle bg-gray-100"></span>
       <span class="hamburger-bottom bg-gray-100"></span>
@@ -21,7 +21,7 @@
 
   <!-- Mobile Menu -->
   <div class="md:hidden">
-    <div id="mobile-menu" class="absolute flex flex-col items-center hidden self-end py-8 space-y-6 font-bold bg-gray-800 dark:bg-gray-900 sm:w-auto sm:self-center left-24 right-0 slide-out transition-transform duration-300 ease-in-out">
+    <div id="mobile-menu" class="absolute flex flex-col items-center hidden self-end space-y-4 rounded-lg mt-3 py-4 font-bold bg-gray-800 dark:bg-gray-900 sm:w-auto sm:self-center left-24 right-0 slide-out transition-transform duration-300 ease-in-out">
       <a routerLink="/about" routerLinkActive="active-link" class="text-gray-300 dark:text-gray-400 dark:hover:text-white hover:text-white">About</a>
       <a routerLink="/projects" routerLinkActive="active-link" class="text-gray-300 dark:text-gray-400 dark:hover:text-white hover:text-white">Projects</a>
       <a routerLink="/certificates" routerLinkActive="active-link" class="text-gray-300 dark:text-gray-400 dark:hover:text-white hover:text-white">Certificates</a>
