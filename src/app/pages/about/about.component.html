@@ -32,31 +32,14 @@
         <h2 class="font-extrabold text-xl mb-2">Tech Stack</h2>
         <p class="mb-3 font-semibold">Including, but not limited to:</p>
         <div id="tech-stack-links" class="flex flex-wrap gap-4 justify-center">
-          <a [routerLink]="['/projects']"><img src="angular-original.svg" title="Angular" alt="Angular" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="react-original-wordmark.svg" title="React" alt="React" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="redux-original.svg" title="Redux" alt="Redux " width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="firebase-plain-wordmark.svg" title="Firebase" alt="Firebase" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="mongodb-original-wordmark.svg" title="MongoDB"  alt="MongoDB" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="mongoose-original-wordmark.svg" title="Mongoose"  alt="Mongoose" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="express-original-wordmark.svg" title="Express"  alt="Express" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="mysql-original-wordmark.svg" title="MySQL"  alt="MySQL" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="bootstrap-original-wordmark.svg" title="Bootstrap"  alt="Bootstrap" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="tailwindcss-original.svg" title="Tailwind"  alt="Tailwind" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="nodejs-original-wordmark.svg" title="NodeJS" alt="NodeJS" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="git-original-wordmark.svg" title="Git" alt="Git" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="python-original-wordmark.svg" title="Python" alt="Python" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="apache-plain-wordmark.svg" title="Apache" alt="Apache" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="java-original-wordmark.svg" title="Java" alt="Java" width="40" height="40"/></a>
+          <a *ngFor="let item of techStack; index as i" [routerLink]="['/projects']"><img src="{{item.image}}" title="{{item.title}}" alt="{{item.title}}" width="40" height="40"/></a>
         </div>
       </div>
       <div class="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out fade-in-up" id="CV">
         <h2 class="font-extrabold text-xl mb-4">CV</h2>
         <div class="grid grid-cols-2 gap-4 place-content-center">
           <p class="font-semibold">Have a look at it here:</p>
-          <a target="_blank" href="https://1drv.ms/b/c/740863ef2517674a/EaMpTQia4ElEkdFEa9aUcd8Ba7Ro4xAWfl_rsC8eA_AzLg?e=ojDtx2">
+          <a target="_blank" rel="noopener" href="https://1drv.ms/b/c/740863ef2517674a/EaMpTQia4ElEkdFEa9aUcd8Ba7Ro4xAWfl_rsC8eA_AzLg?e=ojDtx2">
             <img src="CV_preview.jpg" alt="CV Preview"  width="150" class="rounded-md border-solid border-2">
             View CV
           </a>
@@ -66,25 +49,11 @@
       <div class="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out fade-in-up">
         <h2 class="font-extrabold text-xl mb-4">Contact</h2>
         <div id="contact-links" class="flex flex-col gap-4 items-center font-bold">
-          <a href="https://github.com/Sotonye0808" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
-            <fa-icon [icon]="faGithub" size="lg"></fa-icon>
-            <span>Github</span>
-          </a>
-          <a href="https://www.linkedin.com/in/sotonye-dagogo-bb6585255" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
-            <fa-icon [icon]="faLinkedin" class="text-sky-700" size="lg"></fa-icon>
-            <span>LinkedIn</span>
-          </a>
-          <a href="https://x.com/therealsoshady" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
-            <fa-icon [icon]="faTwitter" class="text-black" size="lg"></fa-icon>
-            <span>X <span class="text-xs">(fka Twitter)</span></span>
-          </a>
-          <a href="https://instagram.com/_.sotonye._?igshid=YmMyMTA2M2Y=" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
-            <fa-icon [icon]="faInstagram" class="text-fuchsia-500" size="lg"></fa-icon>
-            <span>Instagram</span>
-          </a>
-          <a href="mailto:sotydagz@gmail.com" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
-            <fa-icon [icon]="faEnvelope" class="text-rose-700" size="lg"></fa-icon>
-            <span>Email</span>
+          <a *ngFor="let contact of contactLinks; index as i" href="{{contact.link}}" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
+            <fa-icon [icon]="contact.icon" class="{{contact.class}}" size="lg"></fa-icon>
+            <span>{{contact.title}}
+              <span *ngIf="contact.title === 'X '" class="text-xs">(fka Twitter)</span>
+            </span>
           </a>
         </div>
       </div>
