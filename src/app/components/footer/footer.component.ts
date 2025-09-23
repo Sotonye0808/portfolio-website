@@ -1,20 +1,17 @@
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faGithub, faInstagram, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { ContactLinks } from '../../pages/about/about.component';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, CommonModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-  faGithub = faGithub;
-  faInstagram = faInstagram;
-  faLinkedin = faLinkedin;
-  faTwitter = faXTwitter;
-  faEnvelope = faEnvelope;
   
   year = new Date().getFullYear();
+
+  socialLinks = ContactLinks;
 }

@@ -1,78 +1,108 @@
 @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  from {
+    opacity: 0;
   }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  to {
+    opacity: 1;
   }
-  
-  @keyframes fadeInOut {
-    from {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  
-  .fade-in {
-    animation: fadeIn 1s ease-in-out;
-  }
-  
-  .fade-in-up {
-    animation: fadeInUp 1s ease-in-out;
-  }
-  
-  .fade-in-out {
-    animation: fadeInOut 0.5s ease-in-out;
-  }
+}
 
-  .project-card{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-  
-    &:hover {
-      transform: scale(1.05);
-    }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  button {
-    .fa-icon {
-      transition: transform 0.3s ease-in-out;
-    }
-  
-    &:hover .fa-icon {
-      transform: scale(1.2);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+@keyframes fadeInOut {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.fade-in-out {
+  animation: fadeInOut 0.5s ease-in-out;
+}
+
+.projects-section {
+  @apply theme-base section-container bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark;
+}
+
+.section-container {
+  @apply container mx-auto text-center;
+}
+
+.section-title {
+  @apply text-4xl font-extrabold mt-16 mb-8 fade-in;
+}
+
+.project-category {
+  @apply mb-16 fade-in-up;
+}
+
+.category-title {
+  @apply text-2xl font-bold mb-4;
+}
+
+.project-card {
+  @apply theme-base card p-6 shadow-lg relative;
+
+  &:hover {
+    @apply shadow-xl transform scale-105;
+  }
+}
+
+.project-count {
+  @apply absolute mb-4 top-2 right-2 text-sm font-semibold text-gray-600 dark:text-gray-300;
+}
+
+.project-content {
+  @apply flex items-center justify-between;
+}
+
+.nav-button {
+  @apply primary-button rounded-full p-2;
+}
+
+.project-details {
+  @apply mx-4 text-center;
+}
+
+.project-image {
+  @apply rounded-lg w-full max-w-sm mx-auto;
+}
+
+.project-title {
+  @apply text-xl font-bold mt-4;
+}
+
+.project-description {
+  @apply mt-2 font-semibold;
+}
+
+.project-links {
   a {
-    background-color: #ff6b6b;
-    color: black;
-    font-weight: bold;
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 30px;
-    transition: color 0.3s ease-in-out;
-  
+    @apply text-primary-light font-body-bold rounded-full px-4 py-2;
+
     &:hover {
-      background-color: goldenrod;
-      text-decoration: none;
-      transition: color 0.3s ease-in-out;
+      @apply text-accent-default;
     }
   }
-  
+}

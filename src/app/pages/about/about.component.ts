@@ -17,11 +17,6 @@ import { faEnvelope, faYinYang } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent {
-  faGithub = faGithub;
-  faLinkedin = faLinkedin;
-  faTwitter = faXTwitter;
-  faInstagram = faInstagram;
-  faEnvelope = faEnvelope;
   faYY = faYinYang;
   imageDir = "techStackIcons"
 
@@ -100,36 +95,38 @@ export class AboutComponent {
     },
   ]
 
-  contactLinks = [
-    {
+  contactLinks = ContactLinks;
+}
+
+export const ContactLinks = [
+  {
       title: "GitHub",
-      icon: this.faGithub,
+      icon: faGithub,
       class: "",
       link: "https://github.com/Sotonye0808"
     },
     {
       title: "LinkedIn",
-      icon: this.faLinkedin,
+      icon: faLinkedin,
       class: "text-sky-700",
       link: "https://www.linkedin.com/in/sotonye-dagogo-bb6585255"
     },
     {
       title: "X ",
-      icon: this.faTwitter,
+      icon: faXTwitter,
       class: "text-black",
       link: "https://x.com/therealsoshady"
     },
     {
       title: "Instagram",
-      icon: this.faInstagram,
+      icon: faInstagram,
       class: "text-fuchsia-500",
       link: "https://instagram.com/_.sotonye._?igshid=YmMyMTA2M2Y="
     },
     {
       title: "Email",
-      icon: this.faEnvelope,
+      icon: faEnvelope,
       class: "text-rose-700",
       link: "mailto:sotydagz@gmail.com"
     }
-  ]
-}
+]
