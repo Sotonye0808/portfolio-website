@@ -1,82 +1,12 @@
-<section class="certificates-section">
-  <div class="section-container">
-    <h2 class="section-title">Certificates</h2>
+<app-section title="Certificates">
+  <div *ngFor="let category of categories; index as i" class="card-container">
+    <h3 class="category-title">{{category.title}}</h3>
+    <app-card *ngFor="let cert of category.certificates" [imageSrc]="cert.image" [imageAlt]="cert.title"
+      [title]="cert.title">
+      <p class="mb-4">{{cert.description}}</p>
+      <a [href]="cert.link" target="_blank" class="primary-button inline-flex items-center">
+        View Certificate
+      </a>
+    </app-card>
   </div>
-
-  <div class="container mx-auto">
-    <!-- Frontend Section -->
-    <div class="cert-category">
-      <h3 class="category-title">Frontend</h3>
-      <div class="cert-card">
-        <div class="cert-count">Certificates: {{ frontendCertificates.length }}</div>
-        <div class="cert-content">
-          <button class="nav-button" (click)="prevCertificate('frontend')">
-            <fa-icon [icon]="faArrowLeft"></fa-icon>
-          </button>
-          <div class="cert-details">
-            <img [src]="frontendCertificates[currentFrontendIndex].image" alt="Certificate Image"
-              class="rounded-lg w-full max-w-sm mx-auto">
-            <h4 class="text-xl font-bold mt-4">{{ frontendCertificates[currentFrontendIndex].title }}</h4>
-            <p class="mt-2 font-semibold">{{ frontendCertificates[currentFrontendIndex].description }}</p>
-            <a [href]="frontendCertificates[currentFrontendIndex].link"
-              class="text-blue-500 hover:underline transition-colors duration-300 ease-in-out" target="_blank">View
-              Certificate</a>
-          </div>
-          <button class="nav-button" (click)="nextCertificate('frontend')">
-            <fa-icon [icon]="faArrowRight"></fa-icon>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Backend Section -->
-    <div class="cert-category">
-      <h3 class="category-title">Backend</h3>
-      <div class="cert-card">
-        <div class="cert-count">Certificates: {{ backendCertificates.length }}</div>
-        <div class="cert-content">
-          <button class="nav-button" (click)="prevCertificate('backend')">
-            <fa-icon [icon]="faArrowLeft"></fa-icon>
-          </button>
-          <div class="cert-details">
-            <img [src]="backendCertificates[currentBackendIndex].image" alt="Certificate Image"
-              class="rounded-lg w-full max-w-sm mx-auto">
-            <h4 class="text-xl font-bold mt-4">{{ backendCertificates[currentBackendIndex].title }}</h4>
-            <p class="mt-2 font-semibold">{{ backendCertificates[currentBackendIndex].description }}</p>
-            <a [href]="backendCertificates[currentBackendIndex].link"
-              class="text-blue-500 hover:underline transition-colors duration-300 ease-in-out" target="_blank">View
-              Certificate</a>
-          </div>
-          <button class="nav-button" (click)="nextCertificate('backend')">
-            <fa-icon [icon]="faArrowRight"></fa-icon>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Fullstack Section -->
-    <div class="cert-category">
-      <h3 class="category-title">Fullstack</h3>
-      <div class="cert-card">
-        <div class="cert-count">Certificates: {{ fullstackCertificates.length }}</div>
-        <div class="cert-content">
-          <button class="nav-button" (click)="prevCertificate('fullstack')">
-            <fa-icon [icon]="faArrowLeft"></fa-icon>
-          </button>
-          <div class="cert-details">
-            <img [src]="fullstackCertificates[currentFullstackIndex].image" alt="Certificate Image"
-              class="rounded-lg w-full max-w-sm mx-auto">
-            <h4 class="text-xl font-bold mt-4">{{ fullstackCertificates[currentFullstackIndex].title }}</h4>
-            <p class="mt-2 font-semibold">{{ fullstackCertificates[currentFullstackIndex].description }}</p>
-            <a [href]="fullstackCertificates[currentFullstackIndex].link"
-              class="text-blue-500 hover:underline transition-colors duration-300 ease-in-out" target="_blank">View
-              Certificate</a>
-          </div>
-          <button class="nav-button" (click)="nextCertificate('fullstack')">
-            <fa-icon [icon]="faArrowRight"></fa-icon>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+</app-section>

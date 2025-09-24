@@ -1,0 +1,7 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div *ngFor="let image of images"
+        class="aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+        <img src="{{image.src}}" alt="{{image.alt}}" [appImageViewer] [fullImage]="image.fullSrc || image.src"
+            class="w-full h-full object-cover cursor-pointer transform transition-transform duration-300 hover:scale-110">
+    </div>
+</div>

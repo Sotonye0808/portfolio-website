@@ -1,18 +1,25 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { CardComponent } from '../../components/card/card.component';
+import { SectionComponent } from '../../components/section/section.component';
+import { fadeAnimation } from '../../animations/fade.animation';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [FontAwesomeModule],
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss']
+  imports: [
+    CommonModule,
+    FontAwesomeModule,
+    CardComponent,
+    SectionComponent
+  ],
+  animations: [fadeAnimation],
+  templateUrl: './projects.components.html',
+  styleUrl: './projects.components.scss'
 })
 export class ProjectsComponent {
-  faArrowLeft = faArrowLeft;
-  faArrowRight = faArrowRight;
   faGithub = faGithub;
 
   imageDirs = {
@@ -207,42 +214,22 @@ export class ProjectsComponent {
     }
   ];
 
-  currentFrameworksLibrariesIndex = 0;
-  currentBasicHtmlCssJsIndex = 0;
-  currentPythonIndex = 0;
-  currentMiniProjectsIndex = 0;
-
-  prevProject(section: string) {
-    switch (section) {
-      case 'frameworksLibraries':
-        this.currentFrameworksLibrariesIndex = (this.currentFrameworksLibrariesIndex > 0) ? this.currentFrameworksLibrariesIndex - 1 : this.frameworksLibrariesProjects.length - 1;
-        break;
-      case 'basicHtmlCssJs':
-        this.currentBasicHtmlCssJsIndex = (this.currentBasicHtmlCssJsIndex > 0) ? this.currentBasicHtmlCssJsIndex - 1 : this.basicHtmlCssJsProjects.length - 1;
-        break;
-      case 'python':
-        this.currentPythonIndex = (this.currentPythonIndex > 0) ? this.currentPythonIndex - 1 : this.pythonProjects.length - 1;
-        break;
-      case 'miniProjects':
-        this.currentMiniProjectsIndex = (this.currentMiniProjectsIndex > 0) ? this.currentMiniProjectsIndex - 1 : this.miniProjects.length - 1;
-        break;
+  categories = [
+    {
+      title: 'Frameworks and Libraries',
+      projects: this.frameworksLibrariesProjects
+    },
+    {
+      title: 'Basic HTML, CSS, and JS',
+      projects: this.basicHtmlCssJsProjects
+    },
+    {
+      title: 'Python',
+      projects: this.pythonProjects
+    },
+    {
+      title: 'Mini-projects',
+      projects: this.miniProjects
     }
-  }
-
-  nextProject(section: string) {
-    switch (section) {
-      case 'frameworksLibraries':
-        this.currentFrameworksLibrariesIndex = (this.currentFrameworksLibrariesIndex < this.frameworksLibrariesProjects.length - 1) ? this.currentFrameworksLibrariesIndex + 1 : 0;
-        break;
-      case 'basicHtmlCssJs':
-        this.currentBasicHtmlCssJsIndex = (this.currentBasicHtmlCssJsIndex < this.basicHtmlCssJsProjects.length - 1) ? this.currentBasicHtmlCssJsIndex + 1 : 0;
-        break;
-      case 'python':
-        this.currentPythonIndex = (this.currentPythonIndex < this.pythonProjects.length - 1) ? this.currentPythonIndex + 1 : 0;
-        break;
-      case 'miniProjects':
-        this.currentMiniProjectsIndex = (this.currentMiniProjectsIndex < this.miniProjects.length - 1) ? this.currentMiniProjectsIndex + 1 : 0;
-        break;
-    }
-  }
+  ]
 }

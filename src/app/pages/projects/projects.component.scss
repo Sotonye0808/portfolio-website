@@ -1,64 +1,5 @@
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInOut {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.fade-in {
-  animation: fadeIn 1s ease-in-out;
-}
-
-.fade-in-up {
-  animation: fadeInUp 1s ease-in-out;
-}
-
-.fade-in-out {
-  animation: fadeInOut 0.5s ease-in-out;
-}
-
 .projects-section {
   @apply theme-base section-container bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark;
-}
-
-.section-container {
-  @apply container mx-auto text-center;
-}
-
-.section-title {
-  @apply text-4xl font-extrabold mt-16 mb-8 fade-in;
-}
-
-.project-category {
-  @apply mb-16 fade-in-up;
-}
-
-.category-title {
-  @apply text-2xl font-bold mb-4;
 }
 
 .project-card {
@@ -75,10 +16,6 @@
 
 .project-content {
   @apply flex items-center justify-between;
-}
-
-.nav-button {
-  @apply primary-button rounded-full p-2;
 }
 
 .project-details {
@@ -105,4 +42,8 @@
       @apply text-accent-default;
     }
   }
+}
+
+.nav-button {
+  @apply primary-button rounded-full p-2;
 }

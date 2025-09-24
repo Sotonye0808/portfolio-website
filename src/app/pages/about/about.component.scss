@@ -1,75 +1,5 @@
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in {
-  animation: fadeIn 1s ease-in-out;
-}
-
-.fade-in-left {
-  animation: fadeInLeft 1s ease-in-out;
-}
-
-.fade-in-right {
-  animation: fadeInRight 1s ease-in-out;
-}
-
-.fade-in-up {
-  animation: fadeInUp 1s ease-in-out;
-}
-
 .about-section {
   @apply theme-base section-container bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark;
-}
-
-.section-container {
-  @apply container mx-auto text-center;
-}
-
-.section-title {
-  @apply text-4xl font-extrabold mt-16 mb-4 fade-in;
-}
-
-.section-subtitle {
-  @apply mt-4 text-lg font-extrabold fade-in;
 }
 
 .profile-container {
@@ -77,11 +7,11 @@
 }
 
 .profile-image-container {
-  @apply fade-in-left font-extrabold md:flex flex-col items-center;
+  @apply animate-fade-in-left font-extrabold md:flex flex-col items-center;
 }
 
 .profile-image {
-  @apply fade-in rounded-full w-60 md:w-80 lg:w-100 mx-auto md:mx-0;
+  @apply animate-fade-in rounded-full w-60 md:w-80 lg:w-100 mx-auto md:mx-0;
 }
 
 .profile-name {
@@ -89,7 +19,7 @@
 }
 
 .profile-description {
-  @apply fade-in-right indent-12 font-bold;
+  @apply animate-fade-in-right indent-12 font-bold;
 }
 
 .info-card {

@@ -1,64 +1,9 @@
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInOut {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.fade-in {
-  animation: fadeIn 1s ease-in-out;
-}
-
-.fade-in-up {
-  animation: fadeInUp 1s ease-in-out;
-}
-
-.fade-in-out {
-  animation: fadeInOut 0.5s ease-in-out;
-}
-
 .certificates-section {
   @apply theme-base section-container bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark;
 }
 
-.section-container {
-  @apply container mx-auto text-center;
-}
-
-.section-title {
-  @apply text-4xl font-extrabold mt-16 mb-8 fade-in;
-}
-
 .cert-category {
-  @apply mb-16 fade-in-up;
-}
-
-.category-title {
-  @apply text-2xl font-bold mb-4;
+  @apply mb-16 animate-fade-in-up;
 }
 
 .cert-card {
@@ -82,7 +27,7 @@
 }
 
 .cert-details {
-  @apply mx-4 text-center transition-transform duration-300 ease-in-out transform fade-in-out;
+  @apply mx-4 text-center transition-transform duration-300 ease-in-out transform animate-scale-in;
 }
 
 .cert-image {
@@ -99,27 +44,4 @@
 
 .cert-link {
   @apply text-primary-light hover:text-accent-default transition-colors;
-}
-
-button {
-  .fa-icon {
-    transition: transform 0.3s ease-in-out;
-  }
-
-  &:hover .fa-icon {
-    transform: scale(1.2);
-  }
-}
-
-a {
-  color: #ff6b6b;
-  font-weight: bold;
-  transition: color 0.3s ease-in-out;
-
-  &:hover {
-    color: goldenrod;
-    text-decoration: none;
-  }
-}
-  }
 }

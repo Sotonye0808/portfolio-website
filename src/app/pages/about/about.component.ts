@@ -1,7 +1,8 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CardComponent } from '../../components/card/card.component';
+import { SectionComponent } from '../../components/section/section.component';
 import { faGithub, faLinkedin, faXTwitter, faInstagram, faAngular, faReact, faHtml5, faCss3, faBootstrap, faNode, faPython, faJsSquare, faJava, faGit, faSass } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faYinYang } from '@fortawesome/free-solid-svg-icons';
 
@@ -11,14 +12,19 @@ import { faEnvelope, faYinYang } from '@fortawesome/free-solid-svg-icons';
   imports: [
     CommonModule,
     FontAwesomeModule,
-    RouterLink
+    CardComponent,
+    SectionComponent
   ],
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  template: `
+                          
+  `,
+  styleUrl: './about.component.html'
 })
 export class AboutComponent {
   faYY = faYinYang;
   imageDir = "techStackIcons"
+
+
 
   techStack = [
     {
@@ -100,33 +106,33 @@ export class AboutComponent {
 
 export const ContactLinks = [
   {
-      title: "GitHub",
-      icon: faGithub,
-      class: "",
-      link: "https://github.com/Sotonye0808"
-    },
-    {
-      title: "LinkedIn",
-      icon: faLinkedin,
-      class: "text-sky-700",
-      link: "https://www.linkedin.com/in/sotonye-dagogo-bb6585255"
-    },
-    {
-      title: "X ",
-      icon: faXTwitter,
-      class: "text-black",
-      link: "https://x.com/therealsoshady"
-    },
-    {
-      title: "Instagram",
-      icon: faInstagram,
-      class: "text-fuchsia-500",
-      link: "https://instagram.com/_.sotonye._?igshid=YmMyMTA2M2Y="
-    },
-    {
-      title: "Email",
-      icon: faEnvelope,
-      class: "text-rose-700",
-      link: "mailto:sotydagz@gmail.com"
-    }
+    title: "GitHub",
+    icon: faGithub,
+    class: "",
+    link: "https://github.com/Sotonye0808"
+  },
+  {
+    title: "LinkedIn",
+    icon: faLinkedin,
+    class: "text-sky-700",
+    link: "https://www.linkedin.com/in/sotonye-dagogo-bb6585255"
+  },
+  {
+    title: "X ",
+    icon: faXTwitter,
+    class: "text-black",
+    link: "https://x.com/therealsoshady"
+  },
+  {
+    title: "Instagram",
+    icon: faInstagram,
+    class: "text-fuchsia-500",
+    link: "https://instagram.com/_.sotonye._?igshid=YmMyMTA2M2Y="
+  },
+  {
+    title: "Email",
+    icon: faEnvelope,
+    class: "text-rose-700",
+    link: "mailto:sotydagz@gmail.com"
+  }
 ]
