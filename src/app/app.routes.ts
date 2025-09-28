@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 
+import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { CertificatesComponent } from './pages/certificates/certificates.component';
@@ -8,8 +9,7 @@ import { CertificatesComponent } from './pages/certificates/certificates.compone
 const routeConfig: Routes = [
   {
     path: '',
-    redirectTo: 'about',
-    pathMatch: 'full',
+    component: HomeComponent,
     data: { animation: 'AboutPage' }
   },
   {
@@ -26,7 +26,13 @@ const routeConfig: Routes = [
     path: 'certificates',
     component: CertificatesComponent,
     data: { animation: 'CertificatesPage' }
-  }
+  },
+   {
+    path: '**',
+    redirectTo: 'home',
+    pathMatch: 'full',
+    data: { animation: 'AboutPage' }
+  },
   ];
   export default routeConfig;
 

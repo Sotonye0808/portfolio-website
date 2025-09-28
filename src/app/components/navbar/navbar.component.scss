@@ -13,7 +13,7 @@ a {
 
 /* Navbar Styles */
 .navbar {
-  @apply theme-base fixed z-50 w-full bg-surface-light dark:bg-surface-dark;
+  @apply theme-base fixed z-50 w-full bg-surface-light dark:bg-surface-dark p-3;
 }
 
 .nav-container {
@@ -119,5 +119,4 @@ a {
 
 .slide-out {
   animation: slideOut 0.3s forwards;
-}
 }

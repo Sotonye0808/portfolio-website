@@ -1,5 +1,5 @@
 .footer {
-  @apply theme-base bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark p-4;
+  @apply bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark p-4;
 }
 
 .footer-container {
@@ -15,5 +15,5 @@
 }
 
 .social-link {
-  @apply text-text-light dark:text-text-dark hover:text-accent-default;
+  @apply text-text-light dark:text-text-dark hover:text-primary-hover;
 }

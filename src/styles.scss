@@ -4,8 +4,12 @@
 
 // Base Typography
 @layer base {
-  html {
-    @apply font-primary text-body;
+ html {
+    @apply font-primary text-base;
+  }
+
+  body {
+    @apply font-primary text-text-light dark:text-text-dark bg-background-light dark:bg-background-dark;
   }
 
   h1 {
@@ -19,6 +23,11 @@
   h3 {
     @apply text-heading-3 font-heading;
   }
+
+  
+  .font-body-bold {
+    @apply font-primary text-base font-bold;
+  }
 }
 
 // Theme System
@@ -27,38 +36,16 @@
     @apply transition-colors duration-300 ease-in-out;
   }
 
-  // Light Theme (default)
-  body {
-    @apply theme-base bg-background-light text-text-light;
-  }
-
   .card {
-    @apply theme-base bg-surface-light;
+    @apply bg-surface-light dark:bg-surface-dark rounded-lg shadow-lg;
   }
 
   .primary-button {
-    @apply theme-base bg-primary-light text-text-light hover:bg-accent-hover;
+    @apply bg-primary-light dark:bg-primary-dark text-white hover:bg-primary-hover;
   }
 
   .nav-link {
-    @apply theme-base text-text-light hover:text-accent-default;
-  }
-
-  // Dark Theme
-  body.dark {
-    @apply bg-background-dark text-text-dark;
-
-    .card {
-      @apply bg-surface-dark;
-    }
-
-    .primary-button {
-      @apply bg-primary-dark text-text-dark;
-    }
-
-    .nav-link {
-      @apply text-text-dark hover:text-accent-default;
-    }
+    @apply text-text-light dark:text-text-dark hover:text-accent-default;
   }
 }
 

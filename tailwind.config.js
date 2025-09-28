@@ -10,6 +10,10 @@ module.exports = {
           dark: "#ff8787",
           hover: "#daa520",
         },
+        surface: {
+          light: "#ffffff",
+          dark: "#374151",
+        },
         background: {
           light: "#f3f4f6",
           dark: "#1f2937",
@@ -26,6 +30,21 @@ module.exports = {
             dark: "#9ca3af",
           },
         },
+        accent: {
+          default: "#daa520",
+          hover: "#b8860b",
+        },
+      },
+      fontFamily: {
+        primary: ["Roboto", "sans-serif"],
+        heading: ["Roboto", "sans-serif"],
+      },
+      fontSize: {
+        body: ["1rem", { lineHeight: "1.5rem" }],
+        "body-bold": ["1rem", { lineHeight: "1.5rem", fontWeight: "700" }],
+        "heading-1": ["2.5rem", { lineHeight: "3rem", fontWeight: "800" }],
+        "heading-2": ["2rem", { lineHeight: "2.5rem", fontWeight: "700" }],
+        "heading-3": ["1.5rem", { lineHeight: "2rem", fontWeight: "600" }],
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-out",

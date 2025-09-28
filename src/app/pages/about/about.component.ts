@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardComponent } from '../../components/card/card.component';
 import { SectionComponent } from '../../components/section/section.component';
-import { faGithub, faLinkedin, faXTwitter, faInstagram, faAngular, faReact, faHtml5, faCss3, faBootstrap, faNode, faPython, faJsSquare, faJava, faGit, faSass } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin, faXTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faYinYang } from '@fortawesome/free-solid-svg-icons';
+import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -12,19 +13,17 @@ import { faEnvelope, faYinYang } from '@fortawesome/free-solid-svg-icons';
   imports: [
     CommonModule,
     FontAwesomeModule,
+    RouterLink,
+    RouterModule,
     CardComponent,
     SectionComponent
   ],
-  template: `
-                          
-  `,
-  styleUrl: './about.component.html'
+  templateUrl: './about.component.html',
+  styleUrl: './about.component.scss'
 })
 export class AboutComponent {
   faYY = faYinYang;
   imageDir = "techStackIcons"
-
-
 
   techStack = [
     {
@@ -40,7 +39,7 @@ export class AboutComponent {
       title: "Redux"
     },
     {
-      image: `${this.imageDir}css3-plain-wordmark.svg`,
+      image: `${this.imageDir}/css3-plain-wordmark.svg`,
       title: "CSS"
     },
     {

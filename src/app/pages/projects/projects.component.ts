@@ -16,8 +16,8 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
     SectionComponent
   ],
   animations: [fadeAnimation],
-  templateUrl: './projects.components.html',
-  styleUrl: './projects.components.scss'
+  templateUrl: './projects.component.html',
+  styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent {
   faGithub = faGithub;
