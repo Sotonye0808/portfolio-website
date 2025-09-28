@@ -13,11 +13,11 @@ a {
 
 /* Navbar Styles */
 .navbar {
-  @apply theme-base fixed z-50 w-full bg-surface-light dark:bg-surface-dark p-3;
+  @apply theme-base fixed z-50 w-full;
 }
 
 .nav-container {
-  @apply container mx-auto flex justify-between items-center;
+  @apply w-11/12 py-1.5 px-3 rounded-full bg-surface-light dark:bg-surface-dark mx-auto flex justify-between items-center;
 }
 
 .brand-container {
@@ -25,7 +25,7 @@ a {
 }
 
 .brand-link {
-  @apply text-white text-3xl font-bold flex pb-1;
+  @apply  text-3xl font-bold flex pb-1;
 }
 
 .nav-links {
@@ -37,7 +37,7 @@ a {
 }
 
 .mobile-menu {
-  @apply theme-base bg-surface-light dark:bg-surface-dark absolute flex-col items-center hidden self-end space-y-4 rounded-lg mt-3 py-4 font-bold sm:w-auto sm:self-center left-24 right-0;
+  @apply theme-base bg-surface-light dark:bg-surface-dark absolute flex-col items-center space-y-4 rounded-lg w-2/3 py-4 mt-40 font-bold self-center right-0;
 }
 
 /* Active Link Styles */

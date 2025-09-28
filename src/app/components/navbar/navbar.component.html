@@ -7,9 +7,7 @@
     </div>
 
     <div class="nav-links">
-      <a routerLink="/about" routerLinkActive="active-link" class="nav-link">About</a>
-      <a routerLink="/projects" routerLinkActive="active-link" class="nav-link">Projects</a>
-      <a routerLink="/certificates" routerLinkActive="active-link" class="nav-link">Certificates</a>
+      <a *ngFor="let route of routes; index as i" routerLink="{{route.path}}" routerLinkActive="active-link" class="nav-link">{{route.title}}</a>
     </div>
 
     <!-- Hamburger Icon -->
@@ -22,14 +20,9 @@
 
   <!-- Mobile Menu -->
   <div class="md:hidden">
-    <div id="mobile-menu"
-      class="absolute flex flex-col items-center hidden self-end space-y-4 rounded-lg mt-20 py-4 font-bold bg-gray-800 dark:bg-gray-900 sm:w-auto sm:self-center left-24 right-0 slide-out transition-transform duration-300 ease-in-out">
-      <a routerLink="/about" routerLinkActive="active-link"
-        class="text-gray-300 dark:text-gray-400 dark:hover:text-white hover:text-white">About</a>
-      <a routerLink="/projects" routerLinkActive="active-link"
-        class="text-gray-300 dark:text-gray-400 dark:hover:text-white hover:text-white">Projects</a>
-      <a routerLink="/certificates" routerLinkActive="active-link"
-        class="text-gray-300 dark:text-gray-400 dark:hover:text-white hover:text-white">Certificates</a>
+    <div id="mobile-menu" class="mobile-menu flex hidden">
+      <a *ngFor="let route of routes; index as i" routerLink="{{route.path}}" routerLinkActive="active-link"
+        class="text-gray-300 dark:text-gray-400 dark:hover:text-white hover:text-white">{{route.title}}</a>
     </div>
   </div>
 </nav>

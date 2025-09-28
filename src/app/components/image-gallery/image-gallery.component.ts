@@ -15,6 +15,7 @@ export interface GalleryImage {
     templateUrl: './image-gallery.component.html',
     styleUrl: './image-gallery.component.scss'
 })
+
 export class ImageGalleryComponent {
     @Input() images: GalleryImage[] = [];
 }

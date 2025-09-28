@@ -1,19 +1,14 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
-import { AboutComponent } from '../../pages/about/about.component';
-import { CertificatesComponent } from '../../pages/certificates/certificates.component';
-import { ProjectsComponent } from '../../pages/projects/projects.component';
+import { CommonModule } from '@angular/common';
 import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
-import { Router, RouterOutlet, RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [
-    AboutComponent, 
-    ProjectsComponent, 
-    CertificatesComponent,
+    CommonModule,
     ThemeToggleComponent,
-    RouterOutlet,
     RouterModule
   ],
   templateUrl: './navbar.component.html',
@@ -21,6 +16,25 @@ import { Router, RouterOutlet, RouterModule } from '@angular/router';
 })
 export class NavbarComponent {
   constructor(private elementRef: ElementRef, private router: Router) {}
+
+  routes = [
+    {
+      title: "Home",
+      path: "/"
+    },
+    {
+      title: "About",
+      path: "/about"
+    },
+    {
+      title: "Projects",
+      path: "/projects"
+    },
+    {
+      title: "Certificates",
+      path: "/certificates"
+    }
+  ]
 
   toggleMenu() {
     const btn = this.elementRef.nativeElement.querySelector('#menu-btn');
