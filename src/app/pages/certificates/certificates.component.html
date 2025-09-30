@@ -1,12 +1,3 @@
-<app-section title="Certificates">
-  <div *ngFor="let category of categories; index as i" class="card-container">
-    <h3 class="category-title">{{category.title}}</h3>
-    <app-card *ngFor="let cert of category.certificates" [imageSrc]="cert.image" [imageAlt]="cert.title"
-      [title]="cert.title">
-      <p class="mb-4">{{cert.description}}</p>
-      <a [href]="cert.link" target="_blank" class="primary-button inline-flex items-center">
-        View Certificate
-      </a>
-    </app-card>
-  </div>
+<app-section [title]="'Certificates'" [subtitle]="'Professional certifications and achievements'"  [subtitleTypingEffect]="true">
+  <app-image-gallery [categories]="categories"></app-image-gallery>
 </app-section>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardComponent } from '../../components/card/card.component';
 import { SectionComponent } from '../../components/section/section.component';
+import { ImageGalleryComponent, GalleryCategory } from '../../components/image-gallery/image-gallery.component';
 
 @Component({
   selector: 'app-certificates',
@@ -11,7 +12,8 @@ import { SectionComponent } from '../../components/section/section.component';
     CommonModule,
     FontAwesomeModule,
     CardComponent,
-    SectionComponent
+    SectionComponent,
+    ImageGalleryComponent
   ],
   templateUrl: './certificates.component.html',
   styleUrl: './certificates.component.scss'
@@ -66,18 +68,18 @@ export class CertificatesComponent {
     }
   ];
 
-  categories = [
+  categories: GalleryCategory[]  = [
     {
       title: 'Frontend',
-      certificates: this.frontendCertificates
+      items: this.frontendCertificates
     },
     {
       title: 'Backend',
-      certificates: this.backendCertificates
+      items: this.backendCertificates
     },
     {
       title: 'Frontend',
-      certificates: this.fullstackCertificates
+      items: this.fullstackCertificates
     }
   ]
 }

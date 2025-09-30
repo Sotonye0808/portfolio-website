@@ -1,10 +1,30 @@
-<div class="flex flex-wrap gap-4 justify-center">
-    <div *ngFor="let tech of techStack"
-        class="flex flex-col items-center p-3 rounded-lg bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer group">
-        <img src="{{tech.icon}}"
-            title="{{tech.name}}" alt="{{tech.name}}" width="40" height="40" />
-        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">
-            {{tech.name}}
+<div class="tech-stack">
+    <!-- Pills Mode (for sidebar) -->
+    <div *ngIf="displayMode === 'pills'" class="space-y-6">
+        <div *ngFor="let category of categorizedTech" class="pill-category">
+            <h3 class="pill-category__title">{{ category.title }}</h3>
+            <div class="pill-category__badges">
+                <span *ngFor="let tech of category.items" class="pill-badge">
+                    <img [src]="tech.icon" alt="{{tech.name}}" class="w-4 h-4 mr-2">
+                    {{ tech.name }}
+                </span>
+            </div>
+        </div>
+    </div>
+    
+<!-- Cards Mode (for regular display) -->
+<div *ngIf="displayMode === 'cards'" class="tech-cards">
+    <div *ngFor="let tech of techStack" class="tech-cards__item">
+        <img [src]="tech.icon" [title]="tech.name" alt="{{tech.name}}" class="tech-cards__icon" />
+        <span class="tech-cards__label">
+            {{ tech.name }}
         </span>
+    </div>
+</div>
+    <!-- Bar Mode (for inline display in gallery) -->
+    <div *ngIf="displayMode === 'bar'" class="tech-bar">
+        <div *ngFor="let tech of barTechItems" class="tech-bar__item" [title]="tech.name">
+            <img [src]="tech.icon" alt="{{tech.name}}" class="tech-bar__icon">
+        </div>
     </div>
 </div>

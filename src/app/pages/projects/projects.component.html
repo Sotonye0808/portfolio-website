@@ -1,18 +1,3 @@
-<app-section title="Projects">
-  <div *ngFor="let category of categories; index as i" class="card-container">
-    <h3 class="category-title">{{category.title}}</h3>
-    <app-card *ngFor="let project of category.projects" [imageSrc]="project.image" [imageAlt]="project.title"
-      [title]="project.title">
-      <p class="mb-4">{{project.description}}</p>
-      <div class="flex-between">
-        <a [href]="project.githubLink" target="_blank" class="primary-button inline-flex items-center">
-          <fa-icon [icon]="faGithub" class="mr-2"></fa-icon>
-          Code
-        </a>
-        <a [href]="project.liveLink" target="_blank" class="primary-button inline-flex items-center">
-          Live Demo
-        </a>
-      </div>
-    </app-card>
-  </div>
+<app-section [title]="'Projects'" [subtitle]="'Explore my portfolio of web development project'"  [subtitleTypingEffect]="true">
+  <app-image-gallery [categories]="categories"></app-image-gallery>
 </app-section>

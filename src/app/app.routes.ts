@@ -10,7 +10,7 @@ const routeConfig: Routes = [
   {
     path: '',
     component: HomeComponent,
-    data: { animation: 'AboutPage' }
+    data: { animation: 'HomePage' }
   },
   {
     path: 'about',
@@ -27,13 +27,12 @@ const routeConfig: Routes = [
     component: CertificatesComponent,
     data: { animation: 'CertificatesPage' }
   },
-   {
+  {
     path: '**',
-    redirectTo: 'home',
-    pathMatch: 'full',
-    data: { animation: 'AboutPage' }
-  },
-  ];
-  export default routeConfig;
+    redirectTo: '',
+    pathMatch: 'full'
+  }
+];
+export default routeConfig;
 
-  export const routes = routeConfig;
+export const routes = routeConfig;

@@ -1,5 +1,5 @@
 <div
-    class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+    class="bg-white dark:bg-gradient-to-br dark:from-black dark:to-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
     <div *ngIf="imageSrc" class="relative h-48 overflow-hidden cursor-pointer" (click)="toggleExpand()">
         <img src="{{imageSrc}}" alt="{{imageAlt}}" class="w-full h-full object-cover transition-transform duration-300"
             [class.scale-110]="isExpanded">

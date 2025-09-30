@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardComponent } from '../../components/card/card.component';
 import { SectionComponent } from '../../components/section/section.component';
+import { TechStackComponent, TechItem } from '../../components/tech-stack/tech-stack.component';
+import { ImageViewerDirective } from '../../directives/image-viewer/image-viewer.directive';
 import { faGithub, faLinkedin, faXTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faYinYang } from '@fortawesome/free-solid-svg-icons';
 import { RouterLink, RouterModule } from '@angular/router';
+import { techStackVariable } from '../home/home.component';
 
 @Component({
   selector: 'app-about',
@@ -16,7 +19,9 @@ import { RouterLink, RouterModule } from '@angular/router';
     RouterLink,
     RouterModule,
     CardComponent,
-    SectionComponent
+    SectionComponent,
+    TechStackComponent,
+    ImageViewerDirective
   ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
@@ -25,80 +30,7 @@ export class AboutComponent {
   faYY = faYinYang;
   imageDir = "techStackIcons"
 
-  techStack = [
-    {
-      image: `${this.imageDir}/angular-original.svg`,
-      title: "Angular"
-    },
-    {
-      image: `${this.imageDir}/react-original-wordmark.svg`,
-      title: "React"
-    },
-    {
-      image: `${this.imageDir}/redux-original.svg`,
-      title: "Redux"
-    },
-    {
-      image: `${this.imageDir}/css3-plain-wordmark.svg`,
-      title: "CSS"
-    },
-    {
-      image: `${this.imageDir}/html5-original.svg`,
-      title: "HTML5"
-    },
-    {
-      image: `${this.imageDir}/javascript-original.svg`,
-      title: "JavaScript"
-    },
-    {
-      image: `${this.imageDir}/firebase-plain-wordmark.svg`,
-      title: "Firebase"
-    },
-    {
-      image: `${this.imageDir}/mongodb-original-wordmark.svg`,
-      title: "MongoDB"
-    },
-    {
-      image: `${this.imageDir}/mongoose-original-wordmark.svg`,
-      title: "Mongoose"
-    },
-    {
-      image: `${this.imageDir}/express-original-wordmark.svg`,
-      title: "Express"
-    },
-    {
-      image: `${this.imageDir}/mysql-original-wordmark.svg`,
-      title: "MySQL"
-    },
-    {
-      image: `${this.imageDir}/bootstrap-original-wordmark.svg`,
-      title: "Bootstrap"
-    },
-    {
-      image: `${this.imageDir}/tailwindcss-original.svg`,
-      title: "Tailwind"
-    },
-    {
-      image: `${this.imageDir}/nodejs-original-wordmark.svg`,
-      title: "NodeJS"
-    },
-    {
-      image: `${this.imageDir}/git-original-wordmark.svg`,
-      title: "Git"
-    },
-    {
-      image: `${this.imageDir}/python-original-wordmark.svg`,
-      title: "Python"
-    },
-    {
-      image: `${this.imageDir}/apache-plain-wordmark.svg`,
-      title: "Apache"
-    },
-    {
-      image: `${this.imageDir}/java-original-wordmark.svg`,
-      title: "Java"
-    },
-  ]
+  techStack: TechItem[] = techStackVariable;
 
   contactLinks = ContactLinks;
 }

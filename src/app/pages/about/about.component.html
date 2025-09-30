@@ -1,7 +1,8 @@
 <app-section title="About Me" subtitle="Software Developer">
   <div class="grid md:grid-cols-2 gap-8 items-center">
     <div class="flex-center">
-      <img src="profile-picture.jpg" alt="Profile Picture" class="rounded-full w-60 md:w-80 lg:w-100">
+      <img src="profile-picture.jpg" alt="Profile Picture" class="rounded-full w-60 md:w-80 lg:w-100" appImageViewer
+        [fullImage]="'profile-picture.jpg'">
     </div>
     <div class="space-y-4">
       <h3 class="text-heading-3">DAGOGO Sotonye A.</h3>
@@ -27,17 +28,17 @@
         <li class="mb-3"><fa-icon [icon]="faYY"></fa-icon> Fullstack developer</li>
         <li class="flex">Numerous certifications from <a href="https://www.freecodecamp.org/Sotonye" class="px-2"><img
               src="https://img.shields.io/badge/-FCC-black?style=flat&logo=freecodecamp&logoColor=white"
-              alt="freecodecamp" class="pt-1"></a></li>
+              alt="freecodecamp" class="pt-1" appImageViewer
+              [fullImage]="'https://img.shields.io/badge/-FCC-black?style=flat&logo=freecodecamp&logoColor=white'"></a>
+        </li>
         <li class="flex">Learnt a lot from <a href="https://github.com/bradtraversy" class="px-2"><img
-              src="traversy-media.jpg" alt="Traversy Media" width="20" height="20" class="pt-1"></a></li>
+              src="traversy-media.jpg" alt="Traversy Media" width="20" height="20" class="pt-1" appImageViewer
+              [fullImage]="'traversy-media.jpg'"></a></li>
       </ul>
     </app-card>
 
     <app-card title="Tech Stack">
-      <div id="tech-stack-links" class="tech-icons-container">
-        <a *ngFor="let item of techStack; index as i" [routerLink]="['/projects']"><img src="{{item.image}}"
-            title="{{item.title}}" alt="{{item.title}}" width="40" height="40" /></a>
-      </div>
+      <app-tech-stack [techStack]="techStack" displayMode="cards"></app-tech-stack>
     </app-card>
 
     <app-card title="CV">
@@ -45,7 +46,8 @@
         <p class="font-semibold">Have a look at it here:</p>
         <a target="_blank" rel="noopener"
           href="https://1drv.ms/b/c/740863ef2517674a/EaMpTQia4ElEkdFEa9aUcd8Ba7Ro4xAWfl_rsC8eA_AzLg?e=ojDtx2">
-          <img src="CV_preview.jpg" alt="CV Preview" width="150" class="rounded-md border-solid border-2">
+          <img src="CV_preview.jpg" alt="CV Preview" width="150" class="rounded-md border-solid border-2" appImageViewer
+            [fullImage]="'CV_preview.jpg'">
           View CV
         </a>
       </div>

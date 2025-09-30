@@ -4,12 +4,12 @@
 
 // Base Typography
 @layer base {
- html {
+  html {
     @apply font-primary text-base;
   }
 
   body {
-    @apply font-primary text-text-light dark:text-text-dark bg-background-light dark:bg-background-dark;
+    @apply font-primary text-text-light dark:text-text-dark bg-gray-100 dark:bg-gray-800;
   }
 
   h1 {
@@ -24,7 +24,6 @@
     @apply text-heading-3 font-heading;
   }
 
-  
   .font-body-bold {
     @apply font-primary text-base font-bold;
   }
@@ -202,6 +201,103 @@
 // Dark Mode Transitions
 .dark-mode-transition {
   @apply transition-colors duration-300;
+}
+
+// Layout Utilities
+@layer components {
+  .grid-three-column {
+    @apply grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-7xl mx-auto px-4;
+  }
+
+  .sidebar-left {
+    @apply lg:col-span-3 space-y-6;
+  }
+
+  .main-content {
+    @apply lg:col-span-6 space-y-6;
+  }
+
+  .sidebar-right {
+    @apply lg:col-span-3 space-y-6;
+  }
+
+  .pill-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
+           bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200
+           hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200;
+  }
+
+  .pill-category {
+    @apply mb-4;
+
+    &__title {
+      @apply text-lg font-bold mb-3 text-text-light dark:text-text-dark;
+    }
+
+    &__badges {
+      @apply flex flex-wrap gap-2;
+    }
+  }
+
+  .profile-card {
+    @apply bg-background-card-light dark:bg-background-card-dark
+           rounded-xl p-6 text-center shadow-lg
+           hover:shadow-xl transition-all duration-300;
+
+    &__avatar {
+      @apply w-24 h-24 mx-auto mb-4 rounded-full object-cover;
+    }
+
+    &__name {
+      @apply text-xl font-bold mb-2 text-text-light dark:text-text-dark;
+    }
+
+    &__tagline {
+      @apply text-text-muted-light dark:text-text-muted-dark mb-4;
+    }
+
+    &__status {
+      @apply inline-flex items-center px-3 py-1 rounded-full text-sm
+             bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200;
+    }
+  }
+
+  .contact-links {
+    &__title {
+      @apply text-sm font-bold mb-3 text-text-muted-light dark:text-text-muted-dark uppercase tracking-wide;
+    }
+
+    &__list {
+      @apply space-y-2;
+    }
+
+    &__link {
+      @apply flex items-center justify-center p-2 rounded-lg
+             bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300
+             hover:bg-primary-light hover:text-white dark:hover:bg-primary-dark
+             transition-colors duration-200;
+    }
+  }
+
+  .featured-project {
+    @apply bg-gradient-to-br from-purple-600 to-purple-800 
+           text-white p-6 rounded-xl shadow-lg
+           hover:shadow-xl transition-all duration-300;
+
+    &__title {
+      @apply text-lg font-bold mb-2;
+    }
+
+    &__description {
+      @apply text-purple-100 mb-4 text-sm;
+    }
+
+    &__button {
+      @apply bg-white text-purple-800 px-4 py-2 rounded-lg font-medium
+             hover:bg-purple-50 transition-colors duration-200;
+    }
+  }
+
 }
 
 // Responsive Utilities

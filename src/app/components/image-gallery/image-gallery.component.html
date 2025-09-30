@@ -1,7 +1,44 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    <div *ngFor="let image of images"
-        class="aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
-        <img src="{{image.src}}" alt="{{image.alt}}" [appImageViewer] [fullImage]="image.fullSrc || image.src"
-            class="w-full h-full object-cover cursor-pointer transform transition-transform duration-300 hover:scale-110">
+<div class="responsive-grid">
+    <div *ngFor="let category of categories; index as i" class="image-gallery" id="{{category.title}}">
+        <h3 class="category-title">{{category.title}}</h3>
+        <div class="category-container">
+            <div class="category-count">Count: {{ category.items.length }}</div>
+            <div class="items-container">
+                <button type="button" class="item-changer" (click)="prevItem(i)">
+                    <fa-icon [icon]="faArrowLeft"> -</fa-icon>
+                </button>
+                <div class="item-body">
+                    <img [src]="category.items[getCurrentIndex(i)]?.image"
+                        alt="{{category.items[getCurrentIndex(i)]?.title + ' Image'}}" class="item-image" appImageViewer
+                        [fullImage]="category.items[getCurrentIndex(i)]?.image">
+                    <h4 class="item-title">{{ category.items[getCurrentIndex(i)]?.title }}</h4>
+                    <p class="item-description">{{category.items[getCurrentIndex(i)]?.description }}</p>
+                    
+                    <!-- Tech Stack Bar -->
+                    <app-tech-stack 
+                        *ngIf="category.items[getCurrentIndex(i)]?.techStack" 
+                        [techStack]="techStack"
+                        [techNames]="category.items[getCurrentIndex(i)]?.techStack"
+                        displayMode="bar">
+                    </app-tech-stack>
+
+                    <div class="item-actions">
+                        <a *ngIf="category.items[getCurrentIndex(i)]?.githubRepo"
+                            [href]="category.items[getCurrentIndex(i)]?.githubLink" target="_blank"
+                            appAnimatedBorder [borderRadius]="'9999px'">
+                            <fa-icon [icon]="faGithub"></fa-icon>
+                            Source Code
+                        </a>
+                        <a [href]="category.items[getCurrentIndex(i)].liveLink || category.items[getCurrentIndex(i)].link"
+                            target="_blank" appAnimatedBorder [borderRadius]="'9999px'">
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
+                <button type="button" class="item-changer" (click)="nextItem(i)">
+                    <fa-icon [icon]="faArrowRight">-></fa-icon>
+                </button>
+            </div>
+        </div>
     </div>
 </div>

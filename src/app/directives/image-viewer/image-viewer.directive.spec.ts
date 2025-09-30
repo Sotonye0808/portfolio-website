@@ -5,4 +5,6 @@ describe('ImageViewerDirective', () => {
     const directive = new ImageViewerDirective();
     expect(directive).toBeTruthy();
   });
+
+
 });
