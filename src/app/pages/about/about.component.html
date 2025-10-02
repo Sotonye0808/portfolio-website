@@ -1,93 +1,68 @@
-<section class="md:p-16 p-8 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 transition delay-150 duration-300 ease-in-out">
-  <div class="container mx-auto text-center">
-    <h2 class="text-4xl font-extrabold mt-16 mb-4 fade-in">About Me</h2>
-    <p class="mt-4 text-lg font-extrabold fade-in">Software Developer</p>
-  </div>
-  
-  <div class="container mx-auto mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-    <div class="fade-in-left font-extrabold md:flex flex-col items-center">
-      <img src="profile-picture.jpg" title="Profile Picture" alt="Profile Picture" id="profile-picture" loading="eager" class="object-fill fade-in rounded-full w-60 md:w-80 lg:w-100 mx-auto md:mx-0">
-      <p class="text-2xl mt-2 text-center md:relative">DAGOGO Sotonye A.</p>
+<app-section title="About Me" subtitle="Software Developer">
+  <div class="grid md:grid-cols-2 gap-8 items-center">
+    <div class="flex-center">
+      <img src="profile-picture.jpg" alt="Profile Picture" class="rounded-full w-60 md:w-80 lg:w-100" appImageViewer
+        [fullImage]="'profile-picture.jpg'">
     </div>
-    <div class="fade-in-right indent-12 font-bold">
-      <p class="mb-4">Welcome to my Portfolio Website! I am a fullstack web developer, specializing in a host of different technologies such as Angular, React, SQL, NodeJS, Python and much more.</p>
-      <p class="mb-4">Experience gathered from working on personal mini-projects, leading a team of developers in production and building applications for enterprises enables me to guarantee quality powerful web applications with an aesthetic design</p>
-      <p class="mb-4">On this portfolio website, one can view a few of the numerous projects I have built, and some certificates gathered over the years. Links to various platforms through which I can be contacted have also been provided.</p>
+    <div class="space-y-4">
+      <h3 class="text-heading-3">DAGOGO Sotonye A.</h3>
+      <div class="fade-in-right indent-12 font-bold">
+        <p class="mb-4">Welcome to my Portfolio Website! I am a fullstack web developer, specializing in a host of
+          different technologies such as Angular, React, SQL, NodeJS, Python and much more.</p>
+        <p class="mb-4">Experience gathered from working on personal mini-projects, leading a team of developers in
+          production and building applications for enterprises enables me to guarantee quality powerful web applications
+          with an aesthetic design</p>
+        <p class="mb-4">On this portfolio website, one can view a few of the numerous projects I have built, and some
+          certificates gathered over the years. Links to various platforms through which I can be contacted have also
+          been
+          provided.</p>
+      </div>
     </div>
   </div>
 
-  <div class="container mx-auto mt-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out fade-in-up">
-        <h2 class="font-extrabold text-xl mb-3">Experience</h2>
-        <p class="text-center">5 years working as:</p>
-        <ul class="text-center font-semibold">
-          <li><fa-icon [icon]="faYY"></fa-icon> Project manager</li>
-          <li class="mb-3"><fa-icon [icon]="faYY"></fa-icon> Fullstack developer</li>
-          <li class="flex">Numerous certifications from <a href="https://www.freecodecamp.org/Sotonye" class="px-2"><img src="https://img.shields.io/badge/-FCC-black?style=flat&logo=freecodecamp&logoColor=white" alt="freecodecamp" class="pt-1"></a></li>
-          <li class="flex">Learnt a lot from <a href="https://github.com/bradtraversy" class="px-2"><img src="traversy-media.jpg" alt="Traversy Media" width="20" height="20" class="pt-1"></a></li>
-        </ul>
+  <div class="mt-16 grid md:grid-cols-2 gap-8">
+    <app-card title="Experience">
+      <p class="text-center">5 years working as:</p>
+      <ul class="text-center font-semibold">
+        <li><fa-icon [icon]="faYY"></fa-icon> Project manager</li>
+        <li class="mb-3"><fa-icon [icon]="faYY"></fa-icon> Fullstack developer</li>
+        <li class="flex">Numerous certifications from <a href="https://www.freecodecamp.org/Sotonye" class="px-2"><img
+              src="https://img.shields.io/badge/-FCC-black?style=flat&logo=freecodecamp&logoColor=white"
+              alt="freecodecamp" class="pt-1" appImageViewer
+              [fullImage]="'https://img.shields.io/badge/-FCC-black?style=flat&logo=freecodecamp&logoColor=white'"></a>
+        </li>
+        <li class="flex">Learnt a lot from <a href="https://github.com/bradtraversy" class="px-2"><img
+              src="traversy-media.jpg" alt="Traversy Media" width="20" height="20" class="pt-1" appImageViewer
+              [fullImage]="'traversy-media.jpg'"></a></li>
+      </ul>
+    </app-card>
+
+    <app-card title="Tech Stack">
+      <app-tech-stack displayMode="cards"></app-tech-stack>
+    </app-card>
+
+    <app-card title="CV">
+      <div class="grid grid-cols-2 gap-4 place-content-center">
+        <p class="font-semibold">Have a look at it here:</p>
+        <a target="_blank" rel="noopener"
+          href="https://1drv.ms/b/c/740863ef2517674a/EaMpTQia4ElEkdFEa9aUcd8Ba7Ro4xAWfl_rsC8eA_AzLg?e=ojDtx2">
+          <img src="CV_preview.jpg" alt="CV Preview" width="150" class="rounded-md border-solid border-2" appImageViewer
+            [fullImage]="'CV_preview.jpg'">
+          View CV
+        </a>
       </div>
-      <div class="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out fade-in-up">
-        <h2 class="font-extrabold text-xl mb-2">Tech Stack</h2>
-        <p class="mb-3 font-semibold">Including, but not limited to:</p>
-        <div id="tech-stack-links" class="flex flex-wrap gap-4 justify-center">
-          <a [routerLink]="['/projects']"><img src="angular-original.svg" title="Angular" alt="Angular" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="react-original-wordmark.svg" title="React" alt="React" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="redux-original.svg" title="Redux" alt="Redux " width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="firebase-plain-wordmark.svg" title="Firebase" alt="Firebase" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="mongodb-original-wordmark.svg" title="MongoDB"  alt="MongoDB" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="mongoose-original-wordmark.svg" title="Mongoose"  alt="Mongoose" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="express-original-wordmark.svg" title="Express"  alt="Express" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="mysql-original-wordmark.svg" title="MySQL"  alt="MySQL" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="bootstrap-original-wordmark.svg" title="Bootstrap"  alt="Bootstrap" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="tailwindcss-original.svg" title="Tailwind"  alt="Tailwind" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="nodejs-original-wordmark.svg" title="NodeJS" alt="NodeJS" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="git-original-wordmark.svg" title="Git" alt="Git" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="python-original-wordmark.svg" title="Python" alt="Python" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="apache-plain-wordmark.svg" title="Apache" alt="Apache" width="40" height="40"/></a>
-          <a [routerLink]="['/projects']"><img src="java-original-wordmark.svg" title="Java" alt="Java" width="40" height="40"/></a>
-        </div>
+    </app-card>
+
+    <app-card title="Contact">
+      <div id="contact-links" class="contact-links">
+        <a *ngFor="let contact of contactLinks; index as i" href="{{contact.link}}"
+          class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
+          <fa-icon [icon]="contact.icon" class="{{contact.class}}" size="lg"></fa-icon>
+          <span>{{contact.title}}
+            <span *ngIf="contact.title === 'X '" class="text-xs">(fka Twitter)</span>
+          </span>
+        </a>
       </div>
-      <div class="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out fade-in-up" id="CV">
-        <h2 class="font-extrabold text-xl mb-4">CV</h2>
-        <div class="grid grid-cols-2 gap-4 place-content-center">
-          <p class="font-semibold">Have a look at it here:</p>
-          <a target="_blank" href="https://1drv.ms/b/c/740863ef2517674a/EaMpTQia4ElEkdFEa9aUcd8Ba7Ro4xAWfl_rsC8eA_AzLg?e=ojDtx2">
-            <img src="CV_preview.jpg" alt="CV Preview"  width="150" class="rounded-md border-solid border-2">
-            View CV
-          </a>
-        </div>
-        
-      </div>
-      <div class="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out fade-in-up">
-        <h2 class="font-extrabold text-xl mb-4">Contact</h2>
-        <div id="contact-links" class="flex flex-col gap-4 items-center font-bold">
-          <a href="https://github.com/Sotonye0808" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
-            <fa-icon [icon]="faGithub" size="lg"></fa-icon>
-            <span>Github</span>
-          </a>
-          <a href="https://www.linkedin.com/in/sotonye-dagogo-bb6585255" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
-            <fa-icon [icon]="faLinkedin" class="text-sky-700" size="lg"></fa-icon>
-            <span>LinkedIn</span>
-          </a>
-          <a href="https://x.com/therealsoshady" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
-            <fa-icon [icon]="faTwitter" class="text-black" size="lg"></fa-icon>
-            <span>X <span class="text-xs">(fka Twitter)</span></span>
-          </a>
-          <a href="https://instagram.com/_.sotonye._?igshid=YmMyMTA2M2Y=" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
-            <fa-icon [icon]="faInstagram" class="text-fuchsia-500" size="lg"></fa-icon>
-            <span>Instagram</span>
-          </a>
-          <a href="mailto:sotydagz@gmail.com" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
-            <fa-icon [icon]="faEnvelope" class="text-rose-700" size="lg"></fa-icon>
-            <span>Email</span>
-          </a>
-        </div>
-      </div>
-    </div>
+    </app-card>
   </div>
-</section>
+</app-section>

@@ -18,10 +18,14 @@ export class ThemeToggleComponent implements OnInit {
   private prefersDarkScheme: MediaQueryList | undefined;
   private localStorageKey = 'theme';
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+   isBrowser!: boolean;
+
+    constructor (@Inject(PLATFORM_ID) private platformId: Object) {
+      this.isBrowser = isPlatformBrowser(this.platformId);
+    }
 
   ngOnInit() {
-    if (isPlatformBrowser(this.platformId)) {
+    if ( this.isBrowser) {
       this.prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
       if (this.isLocalStorageAvailable()) {
         this.initializeTheme();
@@ -31,7 +35,7 @@ export class ThemeToggleComponent implements OnInit {
   }
   
   isLocalStorageAvailable(): boolean {
-    if (isPlatformBrowser(this.platformId)) {
+    if ( this.isBrowser) {
       try {
         const test = '__localStorageTest__';
         localStorage.setItem(test, test);

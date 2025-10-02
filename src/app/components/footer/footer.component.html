@@ -1,27 +1,10 @@
-<footer class="bg-gray-800 dark:bg-gray-900 p-1 text-center text-white  transition delay-150 duration-300 ease-in-out" id="footer">
-    <div class="container mx-auto">
-      <p>Sotonye Dagogo &copy; {{ year }}.</p>
-      <!-- Social media links -->
-      <div class="flex justify-center space-x-4 mt-1">
-        <a target="_blank" href="https://github.com/Sotonye0808" class="text-white
-        hover:text-gray-300">
-          <fa-icon [icon]="faGithub"></fa-icon>
-        </a>
-        <a target="_blank" href="https://www.linkedin.com/in/sotonye-dagogo-bb6585255" class="text-white
-        hover:text-gray-300">
-          <fa-icon [icon]="faLinkedin"></fa-icon>
-        </a>
-        <a target="_blank" href="https://instagram.com/_.sotonye._?igshid=YmMyMTA2M2Y=" class="text-white hover:text-gray-300">
-          <fa-icon [icon]="faInstagram"></fa-icon>
-        </a>
-        <a target="_blank" href="https://x.com/therealsoshady" class="text-white
-        hover:text-gray-300">
-          <fa-icon [icon]="faTwitter"></fa-icon>
-        </a>
-        <a target="_blank" href="mailto:sotydagz@gmail.com" class="text-white
-        hover:text-gray-300">
-          <fa-icon [icon]="faEnvelope"></fa-icon>
-        </a>
-      </div>
+<footer class="footer">
+  <div class="footer-container">
+    <p class="copyright">Sotonye Dagogo &copy; {{ year }}.</p>
+    <div class="social-links">
+      <a *ngFor="let link of socialLinks; index as i" target="_blank" [href]="link.link" rel="noopener" class="social-link">
+        <fa-icon [icon]="link.icon">{{link.title}}</fa-icon>
+      </a>
     </div>
+  </div>
 </footer>

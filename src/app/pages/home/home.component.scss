@@ -1,0 +1,161 @@
+// Home-spec// Home-specific layout adjustments
+.home-container {
+  @apply min-h-screen py-16 bg-background-light dark:bg-background-dark;
+}
+
+.home-grid {
+  @apply min-h-[calc(100vh-200px)] p-8 md:p-4;
+
+  @media (max-width: 1024px) {
+    @apply gap-8;
+  }
+}
+
+// Enhanced profile card for home page
+.home-profile-card {
+  .profile-card__avatar {
+    @apply border-2 border-accent-default/20 transition-all duration-300 hover:border-accent-default/50 hover:shadow-lg hover:shadow-accent-default/25;
+  }
+}
+
+// Daily tools specific styling for card component usage
+.daily-tools-card {
+  .daily-tools__grid {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-4;
+  }
+
+  .daily-tools__item {
+    @apply flex flex-col items-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800 
+           hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200
+           hover:scale-105 hover:shadow-md;
+  }
+
+  .daily-tools__icon {
+    @apply w-8 h-8 mb-2;
+  }
+
+  .daily-tools__name {
+    @apply text-xs font-medium text-center text-text-light dark:text-text-dark;
+  }
+}
+
+// Quick navigation cards using card component
+.quick-nav__grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-4;
+}
+
+.quick-nav-card {
+  @apply hover:shadow-xl transition-all duration-300 cursor-pointer
+         hover:-translate-y-1 hover:scale-[1.02];
+
+  .quick-nav__header {
+    @apply flex items-center justify-between mb-4;
+  }
+
+  .quick-nav__title {
+    @apply text-lg font-bold text-text-light dark:text-text-dark;
+  }
+
+  .quick-nav__icon {
+    @apply w-8 h-8 bg-primary-light dark:bg-primary-dark rounded-lg 
+           flex items-center justify-center text-white 
+           group-hover:scale-110 group-hover:rotate-6 transition-all duration-200;
+  }
+
+  .quick-nav__description {
+    @apply text-text-muted-light dark:text-text-muted-dark text-sm;
+  }
+
+  .quick-nav__count {
+    @apply mt-4 text-accent-default font-medium text-sm;
+  }
+}
+
+// Enhanced contact links using card component
+.home-contact-links {
+  .contact-links__list {
+    @apply space-y-2;
+  }
+
+  .contact-links__link {
+    @apply text-xl flex items-center justify-center p-2 rounded-lg
+           bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300
+           hover:bg-primary-light hover:text-white dark:hover:bg-primary-dark
+           hover:scale-110 hover:rotate-3 transition-all duration-200;
+  }
+}
+
+// Enhanced featured project with card component
+.home-featured-project {
+  @apply relative overflow-hidden;
+
+  .featured-project__description {
+    @apply text-gray-800 dark:text-gray-200 mb-4 text-sm;
+  }
+
+  .featured-project__button {
+    @apply text-white bg-purple-600 px-4 py-2 rounded-lg font-medium
+           hover:bg-purple-800 transition-colors duration-200;
+  }
+
+  &::before {
+    content: "";
+    @apply absolute -top-1/2 -right-1/2 w-full h-full 
+           bg-gradient-to-br from-white/10 to-transparent
+           rotate-45 transition-all duration-500 pointer-events-none;
+  }
+
+  &:hover::before {
+    @apply right-full;
+  }
+
+  &:hover {
+    @apply scale-105 shadow-2xl shadow-purple-500/25;
+  }
+}
+
+// Stats section using card component
+.stats-card {
+  @apply hover:shadow-xl transition-all duration-300;
+
+  .stats__list {
+    @apply space-y-3;
+  }
+
+  .stats__item {
+    @apply flex justify-between items-center py-1 hover:bg-gray-50 dark:hover:bg-gray-800/50
+           rounded-md px-2 -mx-2 transition-colors duration-200;
+  }
+
+  .stats__label {
+    @apply text-text-muted-light dark:text-text-muted-dark text-sm;
+  }
+
+  .stats__value {
+    @apply font-bold text-primary-light dark:text-primary-dark;
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .sidebar-left,
+  .sidebar-right {
+    @apply order-2;
+  }
+
+  .main-content {
+    @apply order-1;
+  }
+
+  .home-grid {
+    @apply p-4;
+  }
+
+  .quick-nav__grid {
+    @apply grid-cols-1 gap-3;
+  }
+
+  .daily-tools-card .daily-tools__grid {
+    @apply grid-cols-2 gap-3;
+  }
+}

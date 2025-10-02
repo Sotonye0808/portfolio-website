@@ -1,0 +1,19 @@
+.footer {
+  @apply bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark p-4;
+}
+
+.footer-container {
+  @apply container mx-auto;
+}
+
+.copyright {
+  @apply text-sm;
+}
+
+.social-links {
+  @apply flex-center space-x-4;
+}
+
+.social-link {
+  @apply text-text-light dark:text-text-dark hover:text-primary-hover;
+}
