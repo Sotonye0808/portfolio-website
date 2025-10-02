@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
 import { Router, RouterModule } from '@angular/router';
+import routeConfig from '../../app.routes';
 
 @Component({
   selector: 'app-navbar',
@@ -17,24 +18,7 @@ import { Router, RouterModule } from '@angular/router';
 export class NavbarComponent {
   constructor(private elementRef: ElementRef, private router: Router) {}
 
-  routes = [
-    {
-      title: "Home",
-      path: "/"
-    },
-    {
-      title: "About",
-      path: "/about"
-    },
-    {
-      title: "Projects",
-      path: "/projects"
-    },
-    {
-      title: "Certificates",
-      path: "/certificates"
-    }
-  ]
+  routes = routeConfig.filter( route => { route.title !== undefined; return route.title; });
 
   toggleMenu() {
     const btn = this.elementRef.nativeElement.querySelector('#menu-btn');

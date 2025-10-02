@@ -27,7 +27,7 @@
 }
 
 .item-image {
-  @apply rounded-lg w-full max-w-sm mx-auto object-cover cursor-pointer transform transition-transform duration-300 hover:scale-110;
+  @apply rounded-lg w-full h-auto aspect-square overflow-hidden max-w-sm mx-auto object-cover cursor-pointer transform transition-transform duration-300 hover:scale-110;
 }
 
 .item-title {
@@ -43,5 +43,14 @@
 
   a {
     @apply text-sm cursor-pointer inline-flex items-center gap-1 p-2 rounded-full transition-all duration-300 bg-gradient-to-br from-orange-400 to-orange-600 hover:from-gray-400 hover:to-gray-600;
+  
+    &.disabled {
+      @apply bg-gray-500 cursor-not-allowed;
+    }
+
+    &.enabled {
+      @apply transition-all duration-300 bg-gradient-to-br from-orange-400 to-orange-600 hover:from-gray-400 hover:to-gray-600;
+    }
   }
+
 }

@@ -17,7 +17,7 @@ a {
 }
 
 .nav-container {
-  @apply mt-3 w-11/12 py-1.5 px-3 rounded-full bg-surface-light dark:bg-surface-dark mx-auto flex justify-between items-center;
+  @apply mt-3 w-11/12 py-1.5 px-3 rounded-full bg-surface-light dark:bg-surface-dark mx-auto flex justify-between items-center gap-2;
 }
 
 .brand-container {
@@ -25,28 +25,23 @@ a {
 }
 
 .brand-link {
-  @apply  text-3xl font-bold flex pb-1;
+  @apply text-3xl font-bold flex pb-1;
 }
 
 .nav-links {
-  @apply hidden space-x-6 md:flex;
+  @apply hidden space-x-6 md:flex gap-x-8;
 }
 
 .nav-link {
-  @apply theme-base text-text-light dark:text-text-dark hover:text-accent-default;
+  @apply cursor-pointer  text-text-light dark:text-text-dark hover:text-opacity-75 transition-colors duration-200;
+
+  &.active-link {
+    @apply text-primary-light dark:text-primary-dark;
+  }
 }
 
 .mobile-menu {
   @apply theme-base bg-surface-light dark:bg-surface-dark absolute flex-col items-center space-y-4 rounded-lg w-2/3 py-4 mt-40 font-bold self-center right-0;
-}
-
-/* Active Link Styles */
-.active-link {
-  @apply text-primary-light font-body-bold;
-
-  &:hover {
-    @apply text-accent-default;
-  }
 }
 
 /* Hamburger Menu */

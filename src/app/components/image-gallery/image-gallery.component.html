@@ -22,13 +22,16 @@
                     </app-tech-stack>
 
                     <div class="item-actions">
-                        <a *ngIf="category.items[getCurrentIndex(i)]?.githubRepo"
-                            [href]="category.items[getCurrentIndex(i)]?.githubLink" target="_blank"
+                        <a *ngIf="category.items[getCurrentIndex(i)]?.githubLink"
+                        [class]="category.items[getCurrentIndex(i)]?.githubLink === 'private-repo' ? 'disabled' : 'enabled'"
+                            [href]="category.items[getCurrentIndex(i)]?.githubLink !== 'private-repo' ? category.items[getCurrentIndex(i)]?.githubLink : '#'" 
+                            [target]="category.items[getCurrentIndex(i)]?.githubLink !== 'private-repo' ? '_blank' : '_self'" rel="noreferrer"
                             appAnimatedBorder [config]="{borderRadius: '9999px'}">
                             <fa-icon [icon]="faGithub"></fa-icon>
                             Source Code
                         </a>
-                        <a [href]="category.items[getCurrentIndex(i)].liveLink || category.items[getCurrentIndex(i)].link"                            target="_blank" appAnimatedBorder [config]="{borderRadius: '9999px'}">
+                        <a [href]="category.items[getCurrentIndex(i)].liveLink || category.items[getCurrentIndex(i)].link" 
+                             target="_blank" appAnimatedBorder [config]="{borderRadius: '9999px'}" class="enabled">
                             Live Demo
                         </a>
                     </div>

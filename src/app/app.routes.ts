@@ -10,20 +10,24 @@ const routeConfig: Routes = [
   {
     path: '',
     component: HomeComponent,
+    title: 'Home',
     data: { animation: 'HomePage' }
   },
   {
     path: 'about',
+    title: 'About',
     component: AboutComponent,
     data: { animation: 'AboutPage' }
   },
   {
     path: 'projects',
+    title: 'Projects',
     component: ProjectsComponent,
     data: { animation: 'ProjectsPage' }
   },
   {
     path: 'certificates',
+    title: 'Certificates',
     component: CertificatesComponent,
     data: { animation: 'CertificatesPage' }
   },

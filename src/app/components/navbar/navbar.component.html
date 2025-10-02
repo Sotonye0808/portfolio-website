@@ -7,7 +7,7 @@
     </div>
 
     <div class="nav-links">
-      <a *ngFor="let route of routes; index as i" routerLink="{{route.path}}" routerLinkActive="active-link" class="nav-link">{{route.title}}</a>
+      <a *ngFor="let route of routes; index as i" routerLink="{{route.path}}" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" class="nav-link">{{route.title}}</a>
     </div>
 
     <!-- Hamburger Icon -->
@@ -21,8 +21,8 @@
   <!-- Mobile Menu -->
   <div class="md:hidden">
     <div id="mobile-menu" class="mobile-menu flex hidden">
-      <a *ngFor="let route of routes; index as i" routerLink="{{route.path}}" routerLinkActive="active-link"
-        class="text-gray-300 dark:text-gray-400 dark:hover:text-white hover:text-white">{{route.title}}</a>
+      <a *ngFor="let route of routes; index as i" routerLink="{{route.path}}" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}"
+        class="nav-link">{{route.title}}</a>
     </div>
   </div>
 </nav>

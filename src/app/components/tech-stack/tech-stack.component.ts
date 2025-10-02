@@ -10,6 +10,7 @@ export const techStackVariable: TechItem[] = [
     { icon: `${imageDir}/css3-plain-wordmark.svg`, name: "CSS" },
     { icon: `${imageDir}/html5-original.svg`, name: "HTML5" },
     { icon: `${imageDir}/javascript-original.svg`, name: "JavaScript" },
+    { icon: `${imageDir}/typescript-original.svg`, name: "TypeScript" },
     { icon: `${imageDir}/firebase-plain-wordmark.svg`, name: "Firebase" },
     { icon: `${imageDir}/mongodb-original-wordmark.svg`, name: "MongoDB" },
     { icon: `${imageDir}/mongoose-original-wordmark.svg`, name: "Mongoose" },
@@ -18,11 +19,16 @@ export const techStackVariable: TechItem[] = [
     { icon: `${imageDir}/bootstrap-original-wordmark.svg`, name: "Bootstrap" },
     { icon: `${imageDir}/tailwindcss-original.svg`, name: "Tailwind" },
     { icon: `${imageDir}/nodejs-original-wordmark.svg`, name: "NodeJS" },
+    { icon: `${imageDir}/nextjs-original-wordmark.svg`, name: "NextJS" },
+    { icon: `${imageDir}/githubactions-original-wordmark.svg`, name: "GitHub Actions" },
     { icon: `${imageDir}/git-original-wordmark.svg`, name: "Git" },
     { icon: `${imageDir}/python-original-wordmark.svg`, name: "Python" },
     { icon: `${imageDir}/apache-plain-wordmark.svg`, name: "Apache" },
     { icon: `${imageDir}/java-original-wordmark.svg`, name: "Java" },
-    { icon: `${imageDir}/vscode-original.svg`, name: "VSCode" }
+    { icon: `${imageDir}/vscode-original.svg`, name: "VSCode" },
+    { icon: `${imageDir}/django-plain-wordmark.svg`, name: "Django" },
+    { icon: `${imageDir}/graphql-plain-wordmark.svg`, name: "GraphQL" },
+    { icon: `${imageDir}/d3js-original.svg`, name: "D3JS" }
 ];
 
 export interface TechItem {
@@ -57,19 +63,19 @@ export class TechStackComponent {
 
         // Auto-categorize based on tech items
         const frontend = this.techStack.filter(tech =>
-            ['Angular', 'React', 'Redux', 'CSS', 'HTML5', 'JavaScript', 'Bootstrap', 'Tailwind'].includes(tech.name)
+            ['Angular', 'React', 'Redux', 'CSS', 'HTML5', 'JavaScript', 'TypeScript', 'NextJS', 'Bootstrap', 'Tailwind', 'D3JS'].includes(tech.name)
         );
 
         const backend = this.techStack.filter(tech =>
-            ['NodeJS', 'Express', 'Python', 'Java', 'Apache'].includes(tech.name)
+            ['NodeJS', 'Express', 'Django', 'Python', 'Java', 'Apache'].includes(tech.name)
         );
 
         const database = this.techStack.filter(tech =>
-            ['MongoDB', 'Mongoose', 'MySQL', 'Firebase'].includes(tech.name)
+            ['MongoDB', 'Mongoose', 'MySQL', 'Firebase', 'GraphQL'].includes(tech.name)
         );
 
         const devtools = this.techStack.filter(tech =>
-            ['Git'].includes(tech.name)
+            ['Git', 'GitHub Actions'].includes(tech.name)
         );
 
         return [

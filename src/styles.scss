@@ -42,10 +42,6 @@
   .primary-button {
     @apply bg-primary-light dark:bg-primary-dark text-white hover:bg-primary-hover;
   }
-
-  .nav-link {
-    @apply text-text-light dark:text-text-dark hover:text-accent-default;
-  }
 }
 
 // Reusable Component Classes
@@ -104,14 +100,6 @@
     }
   }
 
-  .nav-link {
-    @apply text-gray-300 hover:text-white transition-colors duration-200
-           dark:text-gray-400 dark:hover:text-white;
-
-    &.active {
-      @apply text-primary-light dark:text-primary-dark;
-    }
-  }
 
   .section {
     @apply py-16 px-4 md:px-8;
@@ -184,18 +172,6 @@
   .button {
     @apply hover-effects hover-effects--scale;
   }
-
-  .nav-link {
-    @apply hover-effects;
-
-    &:hover {
-      @apply text-primary-light;
-    }
-
-    &.active {
-      @apply hover-effects--glow;
-    }
-  }
 }
 
 // Dark Mode Transitions
@@ -253,7 +229,7 @@
     }
 
     &__tagline {
-      @apply text-text-muted-light dark:text-text-muted-dark mb-4;
+      @apply mx-auto text-text-muted-light dark:text-text-muted-dark mb-4;
     }
 
     &__status {

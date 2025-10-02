@@ -10,6 +10,8 @@ import { ContactLinks } from '../about/about.component';
 import { TypingEffectDirective } from '../../directives/typing-effect/typing-effect.directive';
 import { AnimatedBorderDirective } from '../../directives/animated-border/animated-border.directive';
 import { PulsatingEffectDirective } from '../../directives/pulsating-effect/pulsating-effect.directive';
+import { Project, projects } from '../projects/projects.component';
+import { certificates } from '../certificates/certificates.component';
 
 interface SidebarSection {
   id: string;
@@ -35,13 +37,6 @@ interface DailyTool {
 interface StatItem {
   label: string;
   value: string;
-}
-
-interface FeaturedProject {
-  title: string;
-  description: string;
-  link: string;
-  image?: string;
 }
 
 @Component({
@@ -75,7 +70,7 @@ export class HomeComponent {
 
   // Daily tools data
   dailyTools: DailyTool[] = this.techStack.filter(tech =>
-    ['VSCode', 'Angular', 'NodeJS', 'MongoDB', 'Git', 'Tailwind'].includes(tech.name)
+    ['VSCode', 'Angular', 'NodeJS', 'TypeScript', 'Git', 'Tailwind', 'Firebase', 'Django'].includes(tech.name)
   );
 
   // Quick navigation data
@@ -107,19 +102,14 @@ export class HomeComponent {
   contactLinks = ContactLinks;
 
   // Featured project data
-  featuredProject: FeaturedProject = {
-    title: 'Portfolio Website',
-    description: 'A modern, responsive portfolio built with Angular and Tailwind CSS showcasing my work and skills.',
-    link: 'https://github.com/Sotonye0808/portfolio-website',
-    image: 'portfolio-preview.jpg'
-  };
+  featuredProject: Project = projects.find(p => p.featured) || projects[0];
 
   // Stats data
   stats: StatItem[] = [
-    { label: 'Projects', value: '20+' },
-    { label: 'Technologies', value: '18+' },
-    { label: 'Years Exp.', value: '5+' },
-    { label: 'Certificates', value: '10+' }
+    { label: 'Projects', value: `${projects.length}+` },
+    { label: 'Technologies', value: `${this.techStack.length}+` },
+    { label: 'Years Exp.', value: `${(new Date().getFullYear()) - 2020}+` }, 
+    { label: 'Certificates', value: `${certificates.length}+` }
   ];
 
   // Sidebar configuration
