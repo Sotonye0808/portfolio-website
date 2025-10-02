@@ -1,6 +1,30 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+const imageDir = "techStackIcons";
+
+export const techStackVariable: TechItem[] = [
+    { icon: `${imageDir}/angular-original.svg`, name: "Angular" },
+    { icon: `${imageDir}/react-original-wordmark.svg`, name: "React" },
+    { icon: `${imageDir}/redux-original.svg`, name: "Redux" },
+    { icon: `${imageDir}/css3-plain-wordmark.svg`, name: "CSS" },
+    { icon: `${imageDir}/html5-original.svg`, name: "HTML5" },
+    { icon: `${imageDir}/javascript-original.svg`, name: "JavaScript" },
+    { icon: `${imageDir}/firebase-plain-wordmark.svg`, name: "Firebase" },
+    { icon: `${imageDir}/mongodb-original-wordmark.svg`, name: "MongoDB" },
+    { icon: `${imageDir}/mongoose-original-wordmark.svg`, name: "Mongoose" },
+    { icon: `${imageDir}/express-original-wordmark.svg`, name: "Express" },
+    { icon: `${imageDir}/mysql-original-wordmark.svg`, name: "MySQL" },
+    { icon: `${imageDir}/bootstrap-original-wordmark.svg`, name: "Bootstrap" },
+    { icon: `${imageDir}/tailwindcss-original.svg`, name: "Tailwind" },
+    { icon: `${imageDir}/nodejs-original-wordmark.svg`, name: "NodeJS" },
+    { icon: `${imageDir}/git-original-wordmark.svg`, name: "Git" },
+    { icon: `${imageDir}/python-original-wordmark.svg`, name: "Python" },
+    { icon: `${imageDir}/apache-plain-wordmark.svg`, name: "Apache" },
+    { icon: `${imageDir}/java-original-wordmark.svg`, name: "Java" },
+    { icon: `${imageDir}/vscode-original.svg`, name: "VSCode" }
+];
+
 export interface TechItem {
     icon: string;
     name: string;
@@ -21,7 +45,7 @@ export interface TechCategory {
     styleUrl: './tech-stack.component.scss'
 })
 export class TechStackComponent {
-    @Input() techStack: TechItem[] = [];
+    @Input() techStack: TechItem[] = techStackVariable;
     @Input() categories: TechCategory[] = [];
     @Input() displayMode: 'pills' | 'cards' | 'bar' = 'pills';
     @Input() techNames: string[] = []; // For bar mode - array of tech names to display
@@ -55,12 +79,12 @@ export class TechStackComponent {
             { title: 'DevTools', items: devtools }
         ].filter(category => category.items.length > 0);
     }
-    
+
     get barTechItems(): TechItem[] {
         if (!this.techNames || this.techNames.length === 0) {
             return [];
         }
-        
+
         return this.techNames
             .map(name => this.techStack.find(tech => tech.name === name))
             .filter(tech => tech !== undefined) as TechItem[];

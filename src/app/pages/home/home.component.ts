@@ -4,32 +4,45 @@ import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SectionComponent } from '../../components/section/section.component';
 import { CardComponent } from '../../components/card/card.component';
-import { TechStackComponent, TechItem } from '../../components/tech-stack/tech-stack.component';
+import { TechStackComponent, TechItem, techStackVariable } from '../../components/tech-stack/tech-stack.component';
 import { ImageViewerDirective } from '../../directives/image-viewer/image-viewer.directive';
 import { ContactLinks } from '../about/about.component';
+import { TypingEffectDirective } from '../../directives/typing-effect/typing-effect.directive';
+import { AnimatedBorderDirective } from '../../directives/animated-border/animated-border.directive';
+import { PulsatingEffectDirective } from '../../directives/pulsating-effect/pulsating-effect.directive';
 
-const imageDir = "techStackIcons";
+interface SidebarSection {
+  id: string;
+  title?: string;
+  type: 'profile' | 'tech-stack' | 'daily-tools' | 'quick-nav' | 'contact-links' | 'featured-project' | 'stats' | 'custom';
+  data?: any;
+  customTemplate?: boolean;
+}
 
-export const techStackVariable: TechItem[] = [
-  { icon: `${imageDir}/angular-original.svg`, name: "Angular" },
-  { icon: `${imageDir}/react-original-wordmark.svg`, name: "React" },
-  { icon: `${imageDir}/redux-original.svg`, name: "Redux" },
-  { icon: `${imageDir}/css3-plain-wordmark.svg`, name: "CSS" },
-  { icon: `${imageDir}/html5-original.svg`, name: "HTML5" },
-  { icon: `${imageDir}/javascript-original.svg`, name: "JavaScript" },
-  { icon: `${imageDir}/firebase-plain-wordmark.svg`, name: "Firebase" },
-  { icon: `${imageDir}/mongodb-original-wordmark.svg`, name: "MongoDB" },
-  { icon: `${imageDir}/mongoose-original-wordmark.svg`, name: "Mongoose" },
-  { icon: `${imageDir}/express-original-wordmark.svg`, name: "Express" },
-  { icon: `${imageDir}/mysql-original-wordmark.svg`, name: "MySQL" },
-  { icon: `${imageDir}/bootstrap-original-wordmark.svg`, name: "Bootstrap" },
-  { icon: `${imageDir}/tailwindcss-original.svg`, name: "Tailwind" },
-  { icon: `${imageDir}/nodejs-original-wordmark.svg`, name: "NodeJS" },
-  { icon: `${imageDir}/git-original-wordmark.svg`, name: "Git" },
-  { icon: `${imageDir}/python-original-wordmark.svg`, name: "Python" },
-  { icon: `${imageDir}/apache-plain-wordmark.svg`, name: "Apache" },
-  { icon: `${imageDir}/java-original-wordmark.svg`, name: "Java" }
-];
+interface QuickNavItem {
+  title: string;
+  description: string;
+  route: string;
+  icon: string;
+  count: string;
+}
+
+interface DailyTool {
+  icon: string;
+  name: string;
+}
+
+interface StatItem {
+  label: string;
+  value: string;
+}
+
+interface FeaturedProject {
+  title: string;
+  description: string;
+  link: string;
+  image?: string;
+}
 
 @Component({
   selector: 'app-home',
@@ -41,17 +54,18 @@ export const techStackVariable: TechItem[] = [
     SectionComponent,
     CardComponent,
     TechStackComponent,
-    ImageViewerDirective
+    ImageViewerDirective,
+    TypingEffectDirective,
+    AnimatedBorderDirective,
+    PulsatingEffectDirective
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  imageDir = imageDir;
-
-  // Use the exported constant
   techStack: TechItem[] = techStackVariable;
 
+  // Profile data
   profileData = {
     name: 'DAGOGO Sotonye A.',
     tagline: 'Fullstack Web Developer & UI/UX Enthusiast',
@@ -59,14 +73,13 @@ export class HomeComponent {
     availability: 'Available for work'
   };
 
-  dailyTools = [
-    { icon: `${this.imageDir}/angular-original.svg`, name: "Angular" },
-    { icon: `${this.imageDir}/nodejs-original-wordmark.svg`, name: "Node.js" },
-    { icon: `${this.imageDir}/mongodb-original-wordmark.svg`, name: "MongoDB" },
-    { icon: `${this.imageDir}/git-original-wordmark.svg`, name: "Git" }
-  ];
+  // Daily tools data
+  dailyTools: DailyTool[] = this.techStack.filter(tech =>
+    ['VSCode', 'Angular', 'NodeJS', 'MongoDB', 'Git', 'Tailwind'].includes(tech.name)
+  );
 
-  quickNavigation = [
+  // Quick navigation data
+  quickNavigation: QuickNavItem[] = [
     {
       title: 'About',
       description: 'Learn more about my background and experience',
@@ -90,18 +103,83 @@ export class HomeComponent {
     }
   ];
 
+  // Contact links
   contactLinks = ContactLinks;
 
-  featuredProject = {
+  // Featured project data
+  featuredProject: FeaturedProject = {
     title: 'Portfolio Website',
     description: 'A modern, responsive portfolio built with Angular and Tailwind CSS showcasing my work and skills.',
-    link: 'https://github.com/Sotonye0808/portfolio-website'
+    link: 'https://github.com/Sotonye0808/portfolio-website',
+    image: 'portfolio-preview.jpg'
   };
 
-  stats = [
+  // Stats data
+  stats: StatItem[] = [
     { label: 'Projects', value: '20+' },
     { label: 'Technologies', value: '18+' },
     { label: 'Years Exp.', value: '5+' },
     { label: 'Certificates', value: '10+' }
   ];
+
+  // Sidebar configuration
+  leftSidebar: SidebarSection[] = [
+    {
+      id: 'tech-stack',
+      title: '🎯 TECH STACK',
+      type: 'tech-stack',
+      data: this.techStack
+    }
+  ];
+
+  mainContent: SidebarSection[] = [
+    {
+      id: 'profile',
+      type: 'profile',
+      data: this.profileData,
+      customTemplate: true
+    },
+    {
+      id: 'daily-tools',
+      title: 'Daily Tool Stack',
+      type: 'daily-tools',
+      data: this.dailyTools
+    },
+    {
+      id: 'quick-nav',
+      type: 'quick-nav',
+      data: this.quickNavigation
+    }
+  ];
+
+  rightSidebar: SidebarSection[] = [
+    {
+      id: 'contact-links',
+      title: 'LINKS',
+      type: 'contact-links',
+      data: this.contactLinks
+    },
+    {
+      id: 'featured-project',
+      type: 'featured-project',
+      data: this.featuredProject
+    },
+    {
+      id: 'stats',
+      title: 'STATS',
+      type: 'stats',
+      data: this.stats
+    }
+  ];
+
+  // Helper method for tracking
+  trackByFn(index: number, item: any): any {
+    return item.id || index;
+  }
+
+
+  // Contact link handler
+  openContactLink(link: string): void {
+    window.open(link, '_blank');
+  }
 }

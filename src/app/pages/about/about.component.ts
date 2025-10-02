@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardComponent } from '../../components/card/card.component';
 import { SectionComponent } from '../../components/section/section.component';
-import { TechStackComponent, TechItem } from '../../components/tech-stack/tech-stack.component';
+import { TechStackComponent } from '../../components/tech-stack/tech-stack.component';
 import { ImageViewerDirective } from '../../directives/image-viewer/image-viewer.directive';
 import { faGithub, faLinkedin, faXTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faYinYang } from '@fortawesome/free-solid-svg-icons';
 import { RouterLink, RouterModule } from '@angular/router';
-import { techStackVariable } from '../home/home.component';
 
 @Component({
   selector: 'app-about',
@@ -28,10 +27,6 @@ import { techStackVariable } from '../home/home.component';
 })
 export class AboutComponent {
   faYY = faYinYang;
-  imageDir = "techStackIcons"
-
-  techStack: TechItem[] = techStackVariable;
-
   contactLinks = ContactLinks;
 }
 
@@ -67,3 +62,4 @@ export const ContactLinks = [
     link: "mailto:sotydagz@gmail.com"
   }
 ]
+

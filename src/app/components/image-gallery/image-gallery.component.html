@@ -17,7 +17,6 @@
                     <!-- Tech Stack Bar -->
                     <app-tech-stack 
                         *ngIf="category.items[getCurrentIndex(i)]?.techStack" 
-                        [techStack]="techStack"
                         [techNames]="category.items[getCurrentIndex(i)]?.techStack"
                         displayMode="bar">
                     </app-tech-stack>
@@ -25,12 +24,11 @@
                     <div class="item-actions">
                         <a *ngIf="category.items[getCurrentIndex(i)]?.githubRepo"
                             [href]="category.items[getCurrentIndex(i)]?.githubLink" target="_blank"
-                            appAnimatedBorder [borderRadius]="'9999px'">
+                            appAnimatedBorder [config]="{borderRadius: '9999px'}">
                             <fa-icon [icon]="faGithub"></fa-icon>
                             Source Code
                         </a>
-                        <a [href]="category.items[getCurrentIndex(i)].liveLink || category.items[getCurrentIndex(i)].link"
-                            target="_blank" appAnimatedBorder [borderRadius]="'9999px'">
+                        <a [href]="category.items[getCurrentIndex(i)].liveLink || category.items[getCurrentIndex(i)].link"                            target="_blank" appAnimatedBorder [config]="{borderRadius: '9999px'}">
                             Live Demo
                         </a>
                     </div>

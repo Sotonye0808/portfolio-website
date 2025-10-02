@@ -4,8 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { ImageViewerDirective } from '../../directives/image-viewer/image-viewer.directive';
-import { TechStackComponent, TechItem } from '../tech-stack/tech-stack.component';
-import { techStackVariable } from '../../pages/home/home.component';
+import { TechStackComponent } from '../tech-stack/tech-stack.component';
 import { AnimatedBorderDirective } from '../../directives/animated-border/animated-border.directive';
 
 export interface GalleryCategory {
@@ -29,8 +28,6 @@ export interface GalleryCategory {
 
 export class ImageGalleryComponent implements OnInit {
     @Input() categories: GalleryCategory[] = [];
-    @Input() techStack: TechItem[] = techStackVariable; // Tech stack reference
-
     faArrowLeft = faArrowLeft;
     faArrowRight = faArrowRight;
     faGithub = faGithub;

@@ -43,6 +43,7 @@ export class TypingEffectDirective implements OnInit, AfterViewInit, OnDestroy, 
   private isInitialized: boolean = false;
   private originalFontSize: string = '';
   private originalFontFamily: string = '';
+  private restartDelay: number = 1; // Fixed 1s delay between untype and type again
 
   isBrowser!: boolean;
 
@@ -101,11 +102,6 @@ export class TypingEffectDirective implements OnInit, AfterViewInit, OnDestroy, 
     
     this.originalFontSize = computedStyle.fontSize;
     this.originalFontFamily = computedStyle.fontFamily;
-    
-    /* console.log('Captured original styles:', {
-      fontSize: this.originalFontSize,
-      fontFamily: this.originalFontFamily
-    }); */
   }
 
   private setupConfig() {
@@ -114,8 +110,8 @@ export class TypingEffectDirective implements OnInit, AfterViewInit, OnDestroy, 
       blinkSpeed: this.config.blinkSpeed ?? this.defaultConfig.blinkSpeed,
       cursorColor: this.config.cursorColor ?? this.defaultConfig.cursorColor,
       cursorWidth: this.config.cursorWidth ?? this.defaultConfig.cursorWidth,
-      fontSize: this.config.fontSize ?? this.originalFontSize, // Use original or custom
-      fontFamily: this.config.fontFamily ?? this.originalFontFamily, // Use original or custom
+      fontSize: this.config.fontSize ?? this.originalFontSize,
+      fontFamily: this.config.fontFamily ?? this.originalFontFamily,
       autoStart: this.config.autoStart ?? this.defaultConfig.autoStart,
       loop: this.config.loop ?? this.defaultConfig.loop,
       loopDelay: this.config.loopDelay ?? this.defaultConfig.loopDelay,
@@ -128,7 +124,6 @@ export class TypingEffectDirective implements OnInit, AfterViewInit, OnDestroy, 
     if (currentText !== this.originalText) {
       this.originalText = currentText;
       this.textLength = this.originalText.length;
-     // console.log('Text updated:', this.originalText, 'Length:', this.textLength); // Debug log
     }
   }
 
@@ -163,11 +158,13 @@ export class TypingEffectDirective implements OnInit, AfterViewInit, OnDestroy, 
 
     const element = this.el.nativeElement;
     
-    // Apply base styles for typing effect
-    this.renderer.setStyle(element, 'width', `${this.textLength}ch`);
+    // Only apply essential typing effect styles, don't override alignment
     this.renderer.setStyle(element, 'white-space', 'nowrap');
     this.renderer.setStyle(element, 'overflow', 'hidden');
     this.renderer.setStyle(element, 'border-right', `${this.activeConfig.cursorWidth} solid ${this.activeConfig.cursorColor}`);
+    
+    // Set initial width to 0 to start the animation properly
+    this.renderer.setStyle(element, 'width', '0');
     
     // Only apply font styles if they were provided in config (custom overrides)
     if (this.config.fontFamily) {
@@ -188,22 +185,84 @@ export class TypingEffectDirective implements OnInit, AfterViewInit, OnDestroy, 
 
     this.styleElement = this.renderer.createElement('style');
     
-    const styles = `
-      @keyframes ${this.animationName} {
-        from {
-          width: 0;
+    // Calculate proper target width using a temporary span
+    const tempSpan = this.renderer.createElement('span');
+    this.renderer.setStyle(tempSpan, 'visibility', 'hidden');
+    this.renderer.setStyle(tempSpan, 'position', 'absolute');
+    this.renderer.setStyle(tempSpan, 'font-family', this.activeConfig.fontFamily);
+    this.renderer.setStyle(tempSpan, 'font-size', this.activeConfig.fontSize);
+    this.renderer.setStyle(tempSpan, 'white-space', 'nowrap');
+    this.renderer.appendChild(tempSpan, this.renderer.createText(this.originalText));
+    this.renderer.appendChild(document.body, tempSpan);
+    
+    const actualWidth = tempSpan.offsetWidth + 6; // +small buffer to avoid cutting off last character
+    this.renderer.removeChild(document.body, tempSpan);
+
+    let styles = '';
+
+    if (this.activeConfig.loop) {
+      // Create complete cycle: type → delay → untype → restart delay → type again
+      const typingDuration = this.activeConfig.typingSpeed!;
+      const loopDelay = this.activeConfig.loopDelay!;
+      const untypingDuration = this.activeConfig.typingSpeed!;
+      const restartDelay = this.restartDelay; // 1s fixed delay
+      const totalCycleDuration = typingDuration + loopDelay + untypingDuration + restartDelay;
+
+      // Calculate percentages for each phase
+      const typeEndPercent = (typingDuration / totalCycleDuration) * 100;
+      const delayEndPercent = ((typingDuration + loopDelay) / totalCycleDuration) * 100;
+      const untypeEndPercent = ((typingDuration + loopDelay + untypingDuration) / totalCycleDuration) * 100;
+
+      styles = `
+        @keyframes ${this.animationName} {
+          0% {
+            width: 0;
+          }
+          ${typeEndPercent}% {
+            width: ${actualWidth}px;
+          }
+          ${delayEndPercent}% {
+            width: ${actualWidth}px;
+          }
+          ${untypeEndPercent}% {
+            width: 0;
+          }
+          100% {
+            width: 0;
+          }
         }
-        to {
-          width: ${this.textLength}ch;
+        
+        @keyframes ${this.blinkAnimationName} {
+          0%, 50% {
+            border-color: ${this.activeConfig.cursorColor};
+          }
+          51%, 100% {
+            border-color: transparent;
+          }
         }
-      }
-      
-      @keyframes ${this.blinkAnimationName} {
-        50% {
-          border-color: transparent;
+      `;
+    } else {
+      // Single animation
+      styles = `
+        @keyframes ${this.animationName} {
+          0% {
+            width: 0;
+          }
+          100% {
+            width: ${actualWidth}px;
+          }
         }
-      }
-    `;
+        
+        @keyframes ${this.blinkAnimationName} {
+          0%, 50% {
+            border-color: ${this.activeConfig.cursorColor};
+          }
+          51%, 100% {
+            border-color: transparent;
+          }
+        }
+      `;
+    }
     
     this.renderer.appendChild(this.styleElement, this.renderer.createText(styles));
     this.renderer.appendChild(document.head, this.styleElement);
@@ -213,14 +272,23 @@ export class TypingEffectDirective implements OnInit, AfterViewInit, OnDestroy, 
     if (!this.isBrowser || this.textLength === 0) return;
 
     const element = this.el.nativeElement;
-    const loopAnimation = this.activeConfig.loop ? 'infinite' : '';
-    const animationDelay = this.activeConfig.loop ? `, ${this.activeConfig.loopDelay}s` : '';
     
-    const animationValue = this.activeConfig.loop 
-      ? `${this.animationName} ${this.activeConfig.typingSpeed}s steps(${this.textLength}) ${animationDelay} ${loopAnimation}, ${this.blinkAnimationName} ${this.activeConfig.blinkSpeed}s step-end infinite alternate`
-      : `${this.animationName} ${this.activeConfig.typingSpeed}s steps(${this.textLength}), ${this.blinkAnimationName} ${this.activeConfig.blinkSpeed}s step-end infinite alternate`;
-    
-    this.renderer.setStyle(element, 'animation', animationValue);
+    if (this.activeConfig.loop) {
+      // Calculate total cycle duration: type + delay + untype + restart delay
+      const typingDuration = this.activeConfig.typingSpeed!;
+      const loopDelay = this.activeConfig.loopDelay!;
+      const untypingDuration = this.activeConfig.typingSpeed!;
+      const restartDelay = this.restartDelay; // 1s fixed delay
+      const totalCycleDuration = typingDuration + loopDelay + untypingDuration + restartDelay;
+
+      // Apply looping animation with proper steps for typing and untyping phases
+      const animationValue = `${this.animationName} ${totalCycleDuration}s steps(${this.textLength}) infinite, ${this.blinkAnimationName} ${this.activeConfig.blinkSpeed}s step-end infinite`;
+      this.renderer.setStyle(element, 'animation', animationValue);
+    } else {
+      // Single animation
+      const animationValue = `${this.animationName} ${this.activeConfig.typingSpeed}s steps(${this.textLength}) forwards, ${this.blinkAnimationName} ${this.activeConfig.blinkSpeed}s step-end infinite`;
+      this.renderer.setStyle(element, 'animation', animationValue);
+    }
   }
 }
 
@@ -232,11 +300,11 @@ export class TypingEffectDirective implements OnInit, AfterViewInit, OnDestroy, 
 <h1 
   appTypingEffect
   [config]="{
-    typingSpeed=3
-    blinkSpeed=0.8
-    cursorColor='#ff0000'
-    fontSize='3em'
-    fontFamily='Courier New, monospace'
+    typingSpeed: 3,
+    blinkSpeed: 0.8,
+    cursorColor: '#ff0000',
+    fontSize: '3em',
+    fontFamily: 'Courier New, monospace'
   }">
   Custom typing effect!
 </h1>
@@ -245,9 +313,9 @@ export class TypingEffectDirective implements OnInit, AfterViewInit, OnDestroy, 
 <p 
   appTypingEffect
   [config]="{
-    loop=true
-    loopDelay=2
-    typingSpeed=1.5
+    loop: true,
+    loopDelay: 2,
+    typingSpeed: 1.5
   }">
   This text will loop continuously.
 </p>
@@ -255,7 +323,7 @@ export class TypingEffectDirective implements OnInit, AfterViewInit, OnDestroy, 
 <!-- Manual control -->
 <div 
   appTypingEffect
-  [config]="{autoStart=false}"
+  [config]="{autoStart: false}"
   #typingElement>
   Click the button to start typing.
 </div>
