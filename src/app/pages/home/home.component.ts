@@ -80,21 +80,21 @@ export class HomeComponent {
       description: 'Learn more about my background and experience',
       route: '/about',
       icon: '👨‍💻',
-      count: '5+ years experience'
+      count: `${(new Date().getFullYear()) - 2020}+ years`
     },
     {
       title: 'Projects',
       description: 'Explore my latest work and side projects',
       route: '/projects',
       icon: '🚀',
-      count: '20+ projects'
+      count: `${projects.length}+ projects`
     },
     {
       title: 'Certificates',
       description: 'View my professional certifications',
       route: '/certificates',
       icon: '🏆',
-      count: '10+ certificates'
+      count: `${certificates.length}+ certs`
     }
   ];
 
