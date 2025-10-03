@@ -5,11 +5,11 @@
 // Base Typography
 @layer base {
   html {
-    @apply font-primary text-base;
+    @apply font-primary text-base scroll-smooth;
   }
 
   body {
-    @apply font-primary text-text-light dark:text-text-dark bg-gray-100 dark:bg-gray-800;
+    @apply font-primary text-text-light dark:text-text-dark bg-gray-100 dark:bg-gray-800 transition-colors ease-in-out;
   }
 
   h1 {

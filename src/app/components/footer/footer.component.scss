@@ -11,9 +11,13 @@
 }
 
 .social-links {
-  @apply flex-center space-x-4;
+  @apply flex-center place-self-stretch space-x-4;
 }
 
 .social-link {
   @apply text-text-light dark:text-text-dark hover:text-primary-hover;
+}
+
+.toTheTop {
+  @apply absolute right-4 text-3xl p-0 leading-none box-border rounded-full text-text-light dark:text-text-dark shadow-md shadow-text-muted-light hover:shadow-none transition-all duration-200;
 }

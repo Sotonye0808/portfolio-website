@@ -13,7 +13,7 @@ a {
 
 /* Navbar Styles */
 .navbar {
-  @apply bg-gray-800 dark:bg-gray-900 px-4 py-2 transition delay-150 duration-300 ease-in-out sticky top-2 z-50 w-[95vw] mt-1 -mb-6 mx-auto rounded-full;
+  @apply bg-gradient-to-r from-20% from-gray-600/40 via-60% via-gray-800/60 to-gray-600/40 backdrop-blur-md drop-shadow-xl px-4 py-2 transition delay-150 duration-300 ease-in-out sticky top-2 z-50 w-[95vw] mt-1 -mb-6 mx-auto rounded-full;
 }
 
 .nav-container {
@@ -21,11 +21,11 @@ a {
 }
 
 .brand-container {
-  @apply flex;
+  @apply flex text-black dark:text-white transition-colors duration-200;
 }
 
 .brand-link {
-  @apply text-white text-3xl font-bold flex pb-1;
+  @apply text-3xl font-bold flex pb-1;
 }
 
 .nav-links {
@@ -36,12 +36,12 @@ a {
   @apply cursor-pointer text-gray-300 dark:text-gray-400 dark:hover:text-white hover:text-white transition-colors duration-200;
 
   &.active-link {
-    @apply text-primary-light dark:text-primary-dark;
+    @apply text-primary-light dark:text-primary-dark hover:text-opacity-80;
   }
 }
 
 .mobile-menu {
-  @apply theme-base absolute flex-col items-center self-end space-y-4 rounded-lg mt-3 py-4 font-bold bg-gray-800 dark:bg-gray-900 sm:w-auto sm:self-center top-12 left-24 right-0 transition-transform duration-300 ease-in-out;
+  @apply absolute flex-col items-center self-end space-y-4 rounded-lg mt-3 py-4 font-bold bg-gradient-to-r from-20% from-gray-600/90 via-60% via-gray-800/90 backdrop-blur-3xl to-gray-600 sm:w-auto sm:self-center top-12 left-24 right-0 transition-transform duration-300 ease-in-out;
 }
 
 /* Hamburger Menu */
@@ -52,7 +52,7 @@ a {
 .hamburger-top,
 .hamburger-middle,
 .hamburger-bottom {
-  @apply absolute top-0 left-0 w-6 h-[2px] rotate-0 transition-all duration-500;
+  @apply bg-gray-900 dark:bg-gray-100 absolute top-0 left-0 w-6 h-[2px] rotate-0 transition-all duration-300;
 }
 
 .hamburger-middle {
