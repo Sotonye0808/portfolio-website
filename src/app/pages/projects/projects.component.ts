@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { CardComponent } from '../../components/card/card.component';
 import { SectionComponent } from '../../components/section/section.component';
 import { ImageGalleryComponent, GalleryCategory } from '../../components/image-gallery/image-gallery.component';
-import { fadeAnimation } from '../../animations/fade.animation';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 export interface Project {
@@ -23,11 +21,9 @@ export interface Project {
   imports: [
     CommonModule,
     FontAwesomeModule,
-    CardComponent,
     SectionComponent,
     ImageGalleryComponent
   ],
-  animations: [fadeAnimation],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
@@ -59,7 +55,7 @@ const enterpriseProjects: Project[] = [
     techStack: ['Angular', 'Django', 'Tailwind', 'Firebase', 'Python', 'TypeScript'],
   },
   {
-    image: `${imageDirs.enterprise}/roxos.jpg`,
+    image: `${imageDirs.enterprise}/roxos-ornaments.jpg`,
     title: 'Roxo\'s Ornaments',
     description: 'Discover a wide range of unique jewellery and accessories for every occasion. Shop now at Roxo\'s Ornaments for elegant pieces.',
     githubLink: 'private-repo',

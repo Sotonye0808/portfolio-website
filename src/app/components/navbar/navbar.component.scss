@@ -13,11 +13,11 @@ a {
 
 /* Navbar Styles */
 .navbar {
-  @apply theme-base fixed z-50 w-full;
+  @apply bg-gray-800 dark:bg-gray-900 px-4 py-2 transition delay-150 duration-300 ease-in-out fixed md:w-full md:mt-0 md:mx-0 md:rounded-none z-50 w-11/12 mt-1 mx-4 rounded-full;
 }
 
 .nav-container {
-  @apply mt-3 w-11/12 py-1.5 px-3 rounded-full bg-surface-light dark:bg-surface-dark mx-auto flex justify-between items-center gap-2;
+  @apply container mx-auto flex justify-between items-center;
 }
 
 .brand-container {
@@ -25,15 +25,15 @@ a {
 }
 
 .brand-link {
-  @apply text-3xl font-bold flex pb-1;
+  @apply text-white text-3xl font-bold flex pb-1;
 }
 
 .nav-links {
-  @apply hidden space-x-6 md:flex gap-x-8;
+  @apply hidden space-x-6 md:flex;
 }
 
 .nav-link {
-  @apply cursor-pointer  text-text-light dark:text-text-dark hover:text-opacity-75 transition-colors duration-200;
+  @apply cursor-pointer text-gray-300 dark:text-gray-400 dark:hover:text-white hover:text-white transition-colors duration-200;
 
   &.active-link {
     @apply text-primary-light dark:text-primary-dark;
@@ -41,63 +41,69 @@ a {
 }
 
 .mobile-menu {
-  @apply theme-base bg-surface-light dark:bg-surface-dark absolute flex-col items-center space-y-4 rounded-lg w-2/3 py-4 mt-40 font-bold self-center right-0;
+  @apply theme-base absolute flex-col items-center self-end space-y-4 rounded-lg mt-3 py-4 font-bold bg-gray-800 dark:bg-gray-900 sm:w-auto sm:self-center top-12 left-24 right-0 transition-transform duration-300 ease-in-out;
 }
 
 /* Hamburger Menu */
 .hamburger {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  transition: all 0.25s;
-  position: relative;
+  @apply cursor-pointer w-6 h-6 transition-all duration-[0.25s] relative;
 }
 
 .hamburger-top,
 .hamburger-middle,
 .hamburger-bottom {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 24px;
-  height: 2px;
-  transform: rotate(0);
-  transition: all 0.5s;
+  @apply absolute top-0 left-0 w-6 h-[2px] rotate-0 transition-all duration-500;
 }
 
 .hamburger-middle {
-  transform: translateY(7px);
+  @apply translate-y-[7px];
 }
 
 .hamburger-bottom {
-  transform: translateY(14px);
+  @apply translate-y-[14px];
 }
 
 .open {
-  transform: rotate(90deg);
-  transform: translateY(0px);
+  @apply rotate-90 -translate-y-2 -translate-x-1;
 }
 
 .open .hamburger-top {
-  transform: rotate(45deg) translateY(6px) translate(6px);
+  @apply rotate-45 translate-y-1.5 translate-x-1.5;
 }
 
 .open .hamburger-middle {
-  display: none;
+  @apply hidden;
 }
 
 .open .hamburger-bottom {
-  transform: rotate(-45deg) translateY(6px) translate(-6px);
+  @apply -rotate-45 translate-y-1.5 translate-x-1.5;
 }
 
 @keyframes slideIn {
-  from {
-    transform: translateY(100%);
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translatey(0);
+    }
   }
-  to {
-    transform: translatey(0);
+  
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
   }
-}
+  
+  .slide-in {
+    animation: slideIn 0.3s forwards;
+  }
+  
+  .slide-out {
+    animation: slideOut 0.3s forwards;
+  }
 
 @keyframes slideOut {
   from {
@@ -106,10 +112,6 @@ a {
   to {
     transform: translateX(100%);
   }
-}
-
-.slide-in {
-  animation: slideIn 0.3s forwards;
 }
 
 .slide-out {

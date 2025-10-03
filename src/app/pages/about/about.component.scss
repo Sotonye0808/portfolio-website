@@ -1,55 +1,62 @@
-.about-section {
-  @apply theme-base section-container bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark;
-}
-
 .profile-container {
-  @apply container mx-auto mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center;
+  @apply container mx-auto mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center;
 }
 
 .profile-image-container {
-  @apply animate-fade-in-left font-extrabold md:flex flex-col items-center;
+  @apply flex-center animate-fade-in-left font-extrabold md:flex flex-col items-center;
+  shape-outside: circle(50%);
 }
 
 .profile-image {
-  @apply animate-fade-in rounded-full w-60 md:w-80 lg:w-full mx-auto md:mx-0;
+  @apply w-60 md:w-80 lg:w-96 animate-fade-in mx-auto md:mx-0 rounded-full;
+  img {
+    @apply object-contain;
+  }
 }
 
 .profile-name {
-  @apply text-2xl mt-2 text-center md:relative;
+  @apply mt-2 text-center md:relative text-heading-3;
 }
 
 .profile-description {
-  @apply animate-fade-in-right indent-12 font-bold;
+  @apply animate-fade-in-right;
+
+  p {
+      @apply my-3 indent-12 font-bold;
+  }
 }
 
-.info-card {
-  @apply theme-base card p-6 shadow-lg hover:shadow-xl;
+.experience-section {
+  @apply mt-16 grid md:grid-cols-2 gap-8;
 }
 
-.card-title {
-  @apply font-extrabold text-xl mb-4;
+.experience-container {
+  @apply grid md:grid-cols-2 gap-4;
 }
 
-.tech-icons-container {
-  @apply flex-center flex-wrap gap-4;
+.work-experience {
+  @apply text-center font-semibold;
+
+  li {
+    @apply flex;
+    img {
+      @apply pt-1;
+    }
+    fa-icon {
+      @apply text-xs scale-75;
+    }
+    span {
+      @apply flex items-center justify-center gap-2;
+    }
+  }
 }
 
-.contact-links {
-  @apply flex-center flex-col gap-4 font-body-bold;
-}
-
-.contact-link {
-  @apply flex items-center space-x-2 text-gray-700 dark:text-gray-300;
-}
-
-#contact-links a {
-  @apply text-primary-light hover:text-accent-default;
-}
-
-#tech-stack-links a {
-  @apply transition-transform hover:scale-125;
-}
-
-#CV a {
-  @apply text-primary-light font-body-bold transition-transform hover:scale-110;
-}
+.cv {
+  @apply grid grid-cols-2 gap-4 place-content-center;
+  p {
+    @apply font-semibold;
+  }
+  a {
+    @apply text-primary-light font-body-bold transition-transform hover:scale-110;
+  }
+} 

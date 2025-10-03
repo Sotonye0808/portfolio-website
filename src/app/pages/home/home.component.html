@@ -85,6 +85,7 @@
                            [title]="link.title">
                             <fa-icon [icon]="link.icon" [ngClass]="link.class"></fa-icon>
                             <span class="ml-2 text-sm">{{ link.title }}</span>
+                            <span *ngIf="link.title === 'X '" class="text-xs">(fka Twitter)</span>
                         </a>
                     </div>
                 </app-card>
@@ -95,6 +96,7 @@
                           [imageAlt]="section.data.title"
                           [title]="section.data.title"
                           class="home-featured-project">
+                <h3 class="text-sm font-semibold text-purple-600">(Featured Project)</h3>
                     <p class="featured-project__description">{{ section.data.description }}</p>
                     <a [href]="section.data.liveLink" 
                        target="_blank" 

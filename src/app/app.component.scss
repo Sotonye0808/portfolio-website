@@ -1,0 +1,12 @@
+.route-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: calc(100vh - 120px); // Adjust based on navbar/footer height
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}

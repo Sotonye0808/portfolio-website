@@ -7,9 +7,9 @@
                 <button type="button" class="item-changer" (click)="prevItem(i)">
                     <fa-icon [icon]="faArrowLeft"> -</fa-icon>
                 </button>
-                <div class="item-body">
+                <div class="item-body" [@galleryAnimation]>
                     <img [src]="category.items[getCurrentIndex(i)]?.image"
-                        alt="{{category.items[getCurrentIndex(i)]?.title + ' Image'}}" class="item-image" appImageViewer
+                        alt="{{category.items[getCurrentIndex(i)]?.title + ' Image'}}" class="item-image" appImageViewer [@expandImage]
                         [fullImage]="category.items[getCurrentIndex(i)]?.image">
                     <h4 class="item-title">{{ category.items[getCurrentIndex(i)]?.title }}</h4>
                     <p class="item-description">{{category.items[getCurrentIndex(i)]?.description }}</p>

@@ -1,68 +1,56 @@
 <app-section title="About Me" subtitle="Software Developer">
-  <div class="grid md:grid-cols-2 gap-8 items-center">
-    <div class="flex-center">
-      <img src="profile-picture.jpg" alt="Profile Picture" class="rounded-full w-60 md:w-80 lg:w-100" appImageViewer
-        [fullImage]="'profile-picture.jpg'">
-    </div>
-    <div class="space-y-4">
-      <h3 class="text-heading-3">DAGOGO Sotonye A.</h3>
-      <div class="fade-in-right indent-12 font-bold">
-        <p class="mb-4">Welcome to my Portfolio Website! I am a fullstack web developer, specializing in a host of
-          different technologies such as Angular, React, SQL, NodeJS, Python and much more.</p>
-        <p class="mb-4">Experience gathered from working on personal mini-projects, leading a team of developers in
-          production and building applications for enterprises enables me to guarantee quality powerful web applications
-          with an aesthetic design</p>
-        <p class="mb-4">On this portfolio website, one can view a few of the numerous projects I have built, and some
-          certificates gathered over the years. Links to various platforms through which I can be contacted have also
-          been
-          provided.</p>
+  <div>
+    <div class="profile-container">
+      <div class="profile-image-container">
+        <img src="profile-picture.jpg" alt="Profile Picture" class="profile-image" appImageViewer
+          [fullImage]="'profile-picture.jpg'">
+        <h3 class="profile-name">DAGOGO Sotonye A.</h3>
+      </div>
+      <div class="profile-description">
+        <p *ngFor="let text of bioParagraphs; index as i">{{text}}</p>
       </div>
     </div>
   </div>
 
-  <div class="mt-16 grid md:grid-cols-2 gap-8">
-    <app-card title="Experience">
-      <p class="text-center">5 years working as:</p>
-      <ul class="text-center font-semibold">
-        <li><fa-icon [icon]="faYY"></fa-icon> Project manager</li>
-        <li class="mb-3"><fa-icon [icon]="faYY"></fa-icon> Fullstack developer</li>
-        <li class="flex">Numerous certifications from <a href="https://www.freecodecamp.org/Sotonye" class="px-2"><img
-              src="https://img.shields.io/badge/-FCC-black?style=flat&logo=freecodecamp&logoColor=white"
-              alt="freecodecamp" class="pt-1" appImageViewer
-              [fullImage]="'https://img.shields.io/badge/-FCC-black?style=flat&logo=freecodecamp&logoColor=white'"></a>
-        </li>
-        <li class="flex">Learnt a lot from <a href="https://github.com/bradtraversy" class="px-2"><img
-              src="traversy-media.jpg" alt="Traversy Media" width="20" height="20" class="pt-1" appImageViewer
-              [fullImage]="'traversy-media.jpg'"></a></li>
-      </ul>
-    </app-card>
+  <div class="experience-section">
+    <div class="experience-container">
+      <app-card title="Experience">
+        <ul class="work-experience">
+          <li class="items-center justify-center gap-2 my-2 p-1 flex-col">
+            <span *ngFor="let work of workExperiences; index as i">
+              <fa-icon [icon]="faYY"></fa-icon> {{work}} <fa-icon [icon]="faYY"></fa-icon>
+            </span>
+          </li>
+          <li>Numerous certifications from
+            <a href="https://www.freecodecamp.org/Sotonye" class="px-2">
+              <img src="https://img.shields.io/badge/-FCC-black?style=flat&logo=freecodecamp&logoColor=white"
+                alt="freecodecamp" appImageViewer
+                [fullImage]="'https://img.shields.io/badge/-FCC-black?style=flat&logo=freecodecamp&logoColor=white'">
+            </a>
+          </li>
+          <li>Learnt a lot from
+            <a href="https://github.com/bradtraversy" class="px-2">
+              <img src="traversy-media.jpg" alt="Traversy Media" width="20" height="20" appImageViewer
+                [fullImage]="'traversy-media.jpg'">
+            </a>
+          </li>
+        </ul>
+      </app-card>
+      <app-card title="CV">
+        <div class="cv">
+          <p>Have a look at it here:</p>
+          <a target="_blank" rel="noopener"
+            href="https://1drv.ms/b/c/740863ef2517674a/EaMpTQia4ElEkdFEa9aUcd8Ba7Ro4xAWfl_rsC8eA_AzLg?e=ojDtx2">
+            <img src="CV_preview.jpg" alt="CV Preview" width="150" class="rounded-md border-solid border-2"
+              appImageViewer [fullImage]="'CV_preview.jpg'">
+            View CV
+          </a>
+        </div>
+      </app-card>
+    </div>
 
     <app-card title="Tech Stack">
       <app-tech-stack displayMode="cards"></app-tech-stack>
-    </app-card>
-
-    <app-card title="CV">
-      <div class="grid grid-cols-2 gap-4 place-content-center">
-        <p class="font-semibold">Have a look at it here:</p>
-        <a target="_blank" rel="noopener"
-          href="https://1drv.ms/b/c/740863ef2517674a/EaMpTQia4ElEkdFEa9aUcd8Ba7Ro4xAWfl_rsC8eA_AzLg?e=ojDtx2">
-          <img src="CV_preview.jpg" alt="CV Preview" width="150" class="rounded-md border-solid border-2" appImageViewer
-            [fullImage]="'CV_preview.jpg'">
-          View CV
-        </a>
-      </div>
-    </app-card>
-
-    <app-card title="Contact">
-      <div id="contact-links" class="contact-links">
-        <a *ngFor="let contact of contactLinks; index as i" href="{{contact.link}}"
-          class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
-          <fa-icon [icon]="contact.icon" class="{{contact.class}}" size="lg"></fa-icon>
-          <span>{{contact.title}}
-            <span *ngIf="contact.title === 'X '" class="text-xs">(fka Twitter)</span>
-          </span>
-        </a>
-      </div>
     </app-card>
   </div>
 </app-section>

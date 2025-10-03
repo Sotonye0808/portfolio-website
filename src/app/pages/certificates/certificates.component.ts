@@ -86,7 +86,7 @@ export class CertificatesComponent {
       items: backendCertificates
     },
     {
-      title: 'Frontend',
+      title: 'Fullstack',
       items: fullstackCertificates
     }
   ]

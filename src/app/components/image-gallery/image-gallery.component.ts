@@ -6,6 +6,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { ImageViewerDirective } from '../../directives/image-viewer/image-viewer.directive';
 import { TechStackComponent } from '../tech-stack/tech-stack.component';
 import { AnimatedBorderDirective } from '../../directives/animated-border/animated-border.directive';
+import { galleryAnimation, imageExpandAnimation } from '../../animations/gallery.animation';
 
 export interface GalleryCategory {
     title: string;
@@ -22,6 +23,7 @@ export interface GalleryCategory {
         AnimatedBorderDirective,
         TechStackComponent
     ],
+    animations: [imageExpandAnimation, galleryAnimation],
     templateUrl: './image-gallery.component.html',
     styleUrl: './image-gallery.component.scss'
 })

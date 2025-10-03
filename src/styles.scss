@@ -54,6 +54,14 @@
     @apply text-heading-2 mb-8 text-center;
   }
 
+  .section-subtitle {
+    @apply text-lg font-medium;
+  }
+
+  .section-tip {
+    @apply text-sm text-text-muted-dark;
+  }
+
   .card-container {
     @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
   }

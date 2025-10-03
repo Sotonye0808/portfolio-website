@@ -116,7 +116,7 @@ export class HomeComponent {
   leftSidebar: SidebarSection[] = [
     {
       id: 'tech-stack',
-      title: '🎯 TECH STACK',
+      title: 'TECH STACK',
       type: 'tech-stack',
       data: this.techStack
     }
