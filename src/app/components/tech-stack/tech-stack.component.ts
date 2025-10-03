@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ImageViewerDirective } from '../../directives/image-viewer/image-viewer.directive';
 
 const imageDir = "techStackIcons";
 
@@ -46,7 +47,7 @@ export interface TechCategory {
 @Component({
     selector: 'app-tech-stack',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, ImageViewerDirective],
     templateUrl: './tech-stack.component.html',
     styleUrl: './tech-stack.component.scss'
 })
