@@ -5,7 +5,7 @@
             <h3 class="pill-category__title">{{ category.title }}</h3>
             <div class="pill-category__badges">
                 <span *ngFor="let tech of category.items" class="pill-badge">
-                    <img appImageViewer [src]="tech.icon" alt="{{tech.name}}" class="w-4 h-4 mr-2">
+                    <img appImageViewer [fullImage]="'tech.icon'" [src]="tech.icon" alt="{{tech.name}}" class="w-4 h-4 mr-2">
                     {{ tech.name }}
                 </span>
             </div>
@@ -15,7 +15,7 @@
 <!-- Cards Mode (for regular display) -->
 <div *ngIf="displayMode === 'cards'" class="tech-cards">
     <div *ngFor="let tech of techStack" class="tech-cards__item">
-        <img appImageViewer [src]="tech.icon" [title]="tech.name" alt="{{tech.name}}" class="tech-cards__icon" />
+        <img appImageViewer [fullImage]="'tech.icon'" [src]="tech.icon" [title]="tech.name" alt="{{tech.name}}" class="tech-cards__icon" />
         <span class="tech-cards__label">
             {{ tech.name }}
         </span>
@@ -24,7 +24,7 @@
     <!-- Bar Mode (for inline display in gallery) -->
     <div *ngIf="displayMode === 'bar'" class="tech-bar">
         <div *ngFor="let tech of barTechItems" class="tech-bar__item" [title]="tech.name">
-            <img appImageViewer [src]="tech.icon" alt="{{tech.name}}" class="tech-bar__icon">
+            <img appImageViewer  [fullImage]="'tech.icon'" [src]="tech.icon" alt="{{tech.name}}" class="tech-bar__icon">
         </div>
     </div>
 </div>
