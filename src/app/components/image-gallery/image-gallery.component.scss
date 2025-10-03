@@ -42,15 +42,6 @@
   @apply mt-4 flex gap-2 items-center justify-evenly;
 
   a {
-    @apply text-sm cursor-pointer inline-flex items-center gap-1 p-2 rounded-full;
-  
-    &.disabled {
-      @apply bg-gray-500 cursor-not-allowed;
+    @apply text-sm cursor-pointer inline-flex items-center gap-1 p-2 rounded-full transition-all duration-300 bg-gradient-to-br from-orange-400 to-orange-600 hover:from-gray-400 hover:to-gray-600;
     }
-
-    &.enabled {
-      @apply transition-all duration-300 bg-gradient-to-br from-orange-400 to-orange-600 hover:from-gray-400 hover:to-gray-600;
-    }
-  }
-
 }
