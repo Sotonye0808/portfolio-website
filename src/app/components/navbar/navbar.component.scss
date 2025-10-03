@@ -13,11 +13,11 @@ a {
 
 /* Navbar Styles */
 .navbar {
-  @apply bg-gray-800 dark:bg-gray-900 px-4 py-2 transition delay-150 duration-300 ease-in-out fixed md:w-full md:mt-0 md:mx-0 md:rounded-none z-50 w-11/12 mt-1 mx-4 rounded-full;
+  @apply bg-gray-800 dark:bg-gray-900 px-4 py-2 transition delay-150 duration-300 ease-in-out sticky top-2 z-50 w-[95vw] mt-1 -mb-6 mx-auto rounded-full;
 }
 
 .nav-container {
-  @apply container mx-auto flex justify-between items-center;
+  @apply container mx-auto flex justify-between gap-1 items-center;
 }
 
 .brand-container {
@@ -29,7 +29,7 @@ a {
 }
 
 .nav-links {
-  @apply hidden space-x-6 md:flex;
+  @apply hidden space-x-16 lg:space-x-36 md:flex;
 }
 
 .nav-link {
