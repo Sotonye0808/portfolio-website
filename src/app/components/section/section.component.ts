@@ -34,5 +34,6 @@ export class SectionComponent {
         cursorColor: 'currentColor',
         autoStart: true,
         loop: true,
+        fontFamily: 'Courier New, Courier, monospace'
     }
 }
