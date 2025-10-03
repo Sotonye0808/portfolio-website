@@ -23,7 +23,7 @@ export class SectionComponent {
         blinkSpeed: 0.5,
         cursorColor: 'currentColor',
         autoStart: true,
-        loop: true,
+        loop: false,
     }
 
     // Typing effect properties for subtitle
@@ -33,7 +33,7 @@ export class SectionComponent {
         blinkSpeed: 0.5,
         cursorColor: 'currentColor',
         autoStart: true,
-        loop: true,
+        loop: false,
         fontFamily: 'Courier New, Courier, monospace'
     }
 }
