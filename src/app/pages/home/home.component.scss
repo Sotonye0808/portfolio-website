@@ -1,6 +1,6 @@
 // Home-spec// Home-specific layout adjustments
 .home-container {
-  @apply min-h-screen py-16 bg-background-light dark:bg-background-dark;
+  @apply min-h-screen py-16 bg-background-light dark:bg-background-dark overflow-hidden;
 }
 
 .home-grid {

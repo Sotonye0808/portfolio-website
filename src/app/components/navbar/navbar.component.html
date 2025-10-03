@@ -20,7 +20,7 @@
 
   <!-- Mobile Menu -->
   <div class="md:hidden">
-    <div id="mobile-menu" class="mobile-menu flex hidden">
+    <div id="mobile-menu" class="mobile-menu flex hidden slide-out">
       <a *ngFor="let route of routes; index as i" routerLink="{{route.path}}" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}"
         class="nav-link">{{route.title}}</a>
     </div>
