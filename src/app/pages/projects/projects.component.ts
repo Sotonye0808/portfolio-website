@@ -134,7 +134,7 @@ const frameworksLibrariesProjects: Project[] = [
     title: 'Portfolio Website',
     description: 'This is my portfolio website built using Angular and styled with TailwindCSS and SASS. It showcases my projects, skills, certificates and contact information. It also has a dark mode and light mode.',
     githubLink: 'https://github.com/Sotonye0808/portfolio-website',
-    liveLink: 'https://sotonye-dagogo.netlify.app/',
+    liveLink: 'https://sotonye-dagogo.is-a.dev/',
     techStack: ['Angular', 'TypeScript', 'Tailwind']
   }
 ];
