@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## My Portfolio website
 **The portfolio website for *Sotonye Dagogo*, software developer.**
 
-Live [here](https://sotonye-dagogo.netlify.app/)
+Live [here](https://sotonye-dagogo.is-a.dev/)
 
 
 ### Framework:
