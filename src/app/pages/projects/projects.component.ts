@@ -68,7 +68,7 @@ const enterpriseProjects: Project[] = [
     description: 'A modern progressive web application (PWA) that provides real-time weather information for cities worldwide. Built with React and TypeScript, the app allows users to track weather conditions for the world\'s largest cities, search for any city globally, and maintain a personalized list of favorites—all while offering offline functionality through localStorage caching.',
     githubLink: 'https://github.com/Sotonye0808/weather-app',
     liveLink: 'https://meteor08.netlify.app/',
-    techStack: ['React', 'Redux', 'Tailwind', 'TypeScript'],
+    techStack: ['React', 'Redux', 'CSS', 'TypeScript'],
   },
   {
     image: `${imageDirs.enterprise}/company-mgmt.png`,
@@ -76,7 +76,7 @@ const enterpriseProjects: Project[] = [
     description: 'A Web Application for managing company information with offline capabilities, dark/light theme support, and responsive design.',
     githubLink: 'https://github.com/Sotonye0808/company-mgmt',
     liveLink: 'https://company-mgmt-three.vercel.app/',
-    techStack: ['NextJS', 'Redux', 'Tailwind', 'TypeScript', 'GraphQL'],
+    techStack: ['NextJS', 'Redux', 'CSS', 'TypeScript', 'GraphQL'],
   }
 ]
 
